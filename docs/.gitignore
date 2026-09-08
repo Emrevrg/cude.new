@@ -1,0 +1,4 @@
+# Cude.new - .gitignore
+.venv
+site/
+.python-version

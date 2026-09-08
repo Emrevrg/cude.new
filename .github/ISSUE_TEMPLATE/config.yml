@@ -1,0 +1,6 @@
+# Cude.new - config.yml
+blank_issues_enabled: false
+contact_links:
+  - name: WebContainer issues
+    url: https://github.com/stackblitz/webcontainer-core/issues
+    about: Report issues with the WebContainer runtime itself.

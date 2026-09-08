@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": [
+      "@remix-run/cloudflare",
+      "vite/client",
+      "@cloudflare/workers-types/2023-07-01",
+      "@types/dom-speech-recognition",
+      "electron"
+    ],
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "target": "ESNext",
+    "strict": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./app/*"]
+    },
+    // vite takes care of building everything, not tsc
+    "noEmit": true
+  },
+  // Generated verification fixtures are standalone projects with their own
+  // dependencies (react-native, vscode, ...) that are not installed here.
+  "exclude": ["node_modules", "build", "dist", "verification-*", "verification-product-family", ".qa", "scripts/capture-*", "scripts/generate-*"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/.server/**/*.ts",
+    "**/.server/**/*.tsx",
+    "**/.client/**/*.ts",
+    "**/.client/**/*.tsx"
+  ]
+}

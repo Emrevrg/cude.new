@@ -1,0 +1,271 @@
+/* Cude.new - variables.scss */
+/* Color Tokens Light Theme — Cude.new monochrome */
+:root,
+:root[data-theme='light'] {
+  --cude-borderColor: theme('colors.alpha.gray.10');
+  --cude-borderColorActive: theme('colors.gray.900');
+
+  --cude-bg-depth-1: theme('colors.white');
+  --cude-bg-depth-2: theme('colors.gray.50');
+  --cude-bg-depth-3: theme('colors.gray.100');
+  --cude-bg-depth-4: theme('colors.alpha.gray.5');
+
+  --cude-textPrimary: theme('colors.gray.950');
+  --cude-textSecondary: theme('colors.gray.700');
+  --cude-textTertiary: theme('colors.gray.500');
+
+  --cude-code-background: theme('colors.gray.100');
+  --cude-code-text: theme('colors.gray.950');
+
+  --cude-button-primary-background: theme('colors.gray.950');
+  --cude-button-primary-backgroundHover: theme('colors.gray.800');
+  --cude-button-primary-text: theme('colors.white');
+
+  --cude-button-secondary-background: theme('colors.alpha.gray.5');
+  --cude-button-secondary-backgroundHover: theme('colors.alpha.gray.10');
+  --cude-button-secondary-text: theme('colors.gray.950');
+
+  --cude-button-danger-background: theme('colors.alpha.red.10');
+  --cude-button-danger-backgroundHover: theme('colors.alpha.red.20');
+  --cude-button-danger-text: theme('colors.red.500');
+
+  --cude-item-contentDefault: theme('colors.alpha.gray.50');
+  --cude-item-contentActive: theme('colors.gray.950');
+  --cude-item-contentAccent: theme('colors.gray.950');
+  --cude-item-contentDanger: theme('colors.red.500');
+  --cude-item-backgroundDefault: rgba(0, 0, 0, 0);
+  --cude-item-backgroundActive: theme('colors.alpha.gray.5');
+  --cude-item-backgroundAccent: theme('colors.alpha.gray.10');
+  --cude-item-backgroundDanger: theme('colors.alpha.red.10');
+
+  --cude-loader-background: theme('colors.alpha.gray.10');
+  --cude-loader-progress: theme('colors.gray.950');
+
+  --cude-artifacts-background: theme('colors.white');
+  --cude-artifacts-backgroundHover: theme('colors.alpha.gray.2');
+  --cude-artifacts-borderColor: var(--cude-borderColor);
+  --cude-artifacts-inlineCode-background: theme('colors.gray.100');
+  --cude-artifacts-inlineCode-text: var(--cude-textPrimary);
+
+  --cude-actions-background: theme('colors.white');
+  --cude-actions-code-background: theme('colors.gray.800');
+
+  --cude-messages-background: theme('colors.gray.100');
+  --cude-messages-linkColor: theme('colors.accent.500');
+  --cude-messages-code-background: theme('colors.gray.800');
+  --cude-messages-inlineCode-background: theme('colors.gray.200');
+  --cude-messages-inlineCode-text: theme('colors.gray.800');
+
+  --cude-icon-success: theme('colors.green.500');
+  --cude-icon-error: theme('colors.red.500');
+  --cude-icon-primary: theme('colors.gray.950');
+  --cude-icon-secondary: theme('colors.gray.600');
+  --cude-icon-tertiary: theme('colors.gray.500');
+
+  --cude-dividerColor: theme('colors.gray.100');
+
+  --cude-prompt-background: theme('colors.alpha.white.80');
+
+  --cude-sidebar-dropdownShadow: theme('colors.alpha.gray.10');
+  --cude-sidebar-buttonBackgroundDefault: theme('colors.alpha.accent.10');
+  --cude-sidebar-buttonBackgroundHover: theme('colors.alpha.accent.20');
+  --cude-sidebar-buttonText: theme('colors.accent.700');
+
+  --cude-preview-addressBar-background: theme('colors.gray.100');
+  --cude-preview-addressBar-backgroundHover: theme('colors.alpha.gray.5');
+  --cude-preview-addressBar-backgroundActive: theme('colors.white');
+  --cude-preview-addressBar-text: var(--cude-textSecondary);
+  --cude-preview-addressBar-textActive: var(--cude-textPrimary);
+
+  --cude-terminals-background: theme('colors.white');
+  --cude-terminals-buttonBackground: var(--cude-bg-depth-4);
+
+  --cude-cta-background: theme('colors.gray.100');
+  --cude-cta-text: theme('colors.gray.950');
+
+  /* Terminal Colors */
+  --cude-terminal-background: var(--cude-terminals-background);
+  --cude-terminal-foreground: #333333;
+  --cude-terminal-selection-background: #00000040;
+  --cude-terminal-black: #000000;
+  --cude-terminal-red: #cd3131;
+  --cude-terminal-green: #00bc00;
+  --cude-terminal-yellow: #949800;
+  --cude-terminal-blue: #0451a5;
+  --cude-terminal-magenta: #bc05bc;
+  --cude-terminal-cyan: #0598bc;
+  --cude-terminal-white: #555555;
+  --cude-terminal-brightBlack: #686868;
+  --cude-terminal-brightRed: #cd3131;
+  --cude-terminal-brightGreen: #00bc00;
+  --cude-terminal-brightYellow: #949800;
+  --cude-terminal-brightBlue: #0451a5;
+  --cude-terminal-brightMagenta: #bc05bc;
+  --cude-terminal-brightCyan: #0598bc;
+  --cude-terminal-brightWhite: #a5a5a5;
+  --modern-scrollbar-thumb-background: rgba(100, 100, 100, 0.3); // Example light theme color
+  --modern-scrollbar-thumb-backgroundHover: rgba(74, 74, 74, 0.8);
+}
+
+/* Color Tokens Dark Theme — Cude.new pure monochrome */
+:root,
+:root[data-theme='dark'] {
+  --cude-borderColor: theme('colors.alpha.white.10');
+  --cude-borderColorActive: theme('colors.white');
+
+  --cude-bg-depth-1: #000000;
+  --cude-bg-depth-2: #0D0D0D;
+  --cude-bg-depth-3: #121212;
+  --cude-bg-depth-4: #181818;
+
+  --cude-textPrimary: theme('colors.white');
+  --cude-textSecondary: #A0A0A0;
+  --cude-textTertiary: #777777;
+
+  --cude-code-background: #181818;
+  --cude-code-text: theme('colors.white');
+
+  --cude-button-primary-background: theme('colors.white');
+  --cude-button-primary-backgroundHover: #EFEFEF;
+  --cude-button-primary-text: #000000;
+
+  --cude-button-secondary-background: theme('colors.alpha.white.5');
+  --cude-button-secondary-backgroundHover: theme('colors.alpha.white.10');
+  --cude-button-secondary-text: theme('colors.white');
+
+  --cude-button-danger-background: theme('colors.alpha.red.10');
+  --cude-button-danger-backgroundHover: theme('colors.alpha.red.20');
+  --cude-button-danger-text: theme('colors.red.500');
+
+  --cude-item-contentDefault: theme('colors.alpha.white.50');
+  --cude-item-contentActive: theme('colors.white');
+  --cude-item-contentAccent: theme('colors.white');
+  --cude-item-contentDanger: theme('colors.red.500');
+  --cude-item-backgroundDefault: rgba(255, 255, 255, 0);
+  --cude-item-backgroundActive: theme('colors.alpha.white.10');
+  --cude-item-backgroundAccent: theme('colors.alpha.white.5');
+  --cude-item-backgroundDanger: theme('colors.alpha.red.10');
+
+  --cude-loader-background: theme('colors.alpha.white.10');
+  --cude-loader-progress: theme('colors.white');
+
+  --cude-artifacts-background: theme('colors.gray.900');
+  --cude-artifacts-backgroundHover: theme('colors.alpha.white.5');
+  --cude-artifacts-borderColor: var(--cude-borderColor);
+  --cude-artifacts-inlineCode-background: theme('colors.gray.800');
+  --cude-artifacts-inlineCode-text: theme('colors.white');
+
+  --cude-actions-background: theme('colors.gray.900');
+  --cude-actions-code-background: theme('colors.gray.800');
+
+  --cude-messages-background: theme('colors.gray.800');
+  --cude-messages-linkColor: theme('colors.accent.500');
+  --cude-messages-code-background: theme('colors.gray.900');
+  --cude-messages-inlineCode-background: theme('colors.gray.700');
+  --cude-messages-inlineCode-text: var(--cude-textPrimary);
+
+  --cude-icon-success: theme('colors.green.400');
+  --cude-icon-error: theme('colors.red.400');
+  --cude-icon-primary: theme('colors.gray.950');
+  --cude-icon-secondary: theme('colors.gray.600');
+  --cude-icon-tertiary: theme('colors.gray.500');
+
+  --cude-dividerColor: theme('colors.gray.100');
+
+  --cude-prompt-background: theme('colors.alpha.gray.80');
+
+  --cude-sidebar-dropdownShadow: theme('colors.alpha.gray.30');
+  --cude-sidebar-buttonBackgroundDefault: theme('colors.alpha.accent.10');
+  --cude-sidebar-buttonBackgroundHover: theme('colors.alpha.accent.20');
+  --cude-sidebar-buttonText: theme('colors.accent.500');
+
+  --cude-preview-addressBar-background: var(--cude-bg-depth-1);
+  --cude-preview-addressBar-backgroundHover: theme('colors.alpha.white.5');
+  --cude-preview-addressBar-backgroundActive: var(--cude-bg-depth-1);
+  --cude-preview-addressBar-text: var(--cude-textSecondary);
+  --cude-preview-addressBar-textActive: var(--cude-textPrimary);
+
+  --cude-terminals-background: var(--cude-bg-depth-1);
+  --cude-terminals-buttonBackground: var(--cude-bg-depth-3);
+
+  --cude-cta-background: theme('colors.alpha.white.10');
+  --cude-cta-text: theme('colors.white');
+
+  /* Terminal Colors */
+  --cude-terminal-background: var(--cude-terminals-background);
+  --cude-terminal-foreground: #eff0eb;
+  --cude-terminal-selection-background: #97979b33;
+  --cude-terminal-black: #000000;
+  --cude-terminal-red: #ff5c57;
+  --cude-terminal-green: #5af78e;
+  --cude-terminal-yellow: #f3f99d;
+  --cude-terminal-blue: #57c7ff;
+  --cude-terminal-magenta: #ff6ac1;
+  --cude-terminal-cyan: #9aedfe;
+  --cude-terminal-white: #f1f1f0;
+  --cude-terminal-brightBlack: #686868;
+  --cude-terminal-brightRed: #ff5c57;
+  --cude-terminal-brightGreen: #5af78e;
+  --cude-terminal-brightYellow: #f3f99d;
+  --cude-terminal-brightBlue: #57c7ff;
+  --cude-terminal-brightMagenta: #ff6ac1;
+  --cude-terminal-brightCyan: #9aedfe;
+  --cude-terminal-brightWhite: #f1f1f0;
+  --modern-scrollbar-thumb-background: rgba(100, 100, 100, 0.3); // Example dark theme color (adjust as needed)
+  --modern-scrollbar-thumb-backgroundHover: rgba(10, 10, 10, 0.8);
+}
+
+/*
+ * Element Tokens
+ *
+ * Hierarchy: Element Token -> (Element Token | Color Tokens) -> Primitives
+ */
+:root {
+  --header-height: 54px;
+
+  /*
+   * Composer / chat column width.
+   *
+   * The composer is the primary interaction on the landing page, so it carries
+   * more visual weight than a chat input would. Narrower viewports fall back to
+   * the available width via the max-w-chat utility.
+   */
+  --chat-max-width: 37rem;
+
+  /*
+   * The conversation column must be wide enough to hold the composer at its
+   * full width (--chat-max-width) plus its gutters. When this was narrower than
+   * the composer, opening the workspace clipped the provider and model controls.
+   */
+  --chat-min-width: clamp(320px, 42vw, 640px);
+  --workbench-width: min(calc(100% - var(--chat-min-width)), 2536px);
+  --workbench-inner-width: var(--workbench-width);
+  --workbench-left: calc(100% - var(--workbench-width));
+
+  /* Toasts */
+  --toastify-color-progress-success: var(--cude-icon-success);
+  --toastify-color-progress-error: var(--cude-icon-error);
+
+  /* Terminal */
+  --cude-terminal-backgroundColor: var(--cude-terminal-background);
+  --cude-terminal-textColor: var(--cude-terminal-foreground);
+  --cude-terminal-cursorColor: var(--cude-terminal-foreground);
+  --cude-terminal-selection-backgroundColor: var(--cude-terminal-selection-background);
+  --cude-terminal-color-black: var(--cude-terminal-black);
+  --cude-terminal-color-red: var(--cude-terminal-red);
+  --cude-terminal-color-green: var(--cude-terminal-green);
+  --cude-terminal-color-yellow: var(--cude-terminal-yellow);
+  --cude-terminal-color-blue: var(--cude-terminal-blue);
+  --cude-terminal-color-magenta: var(--cude-terminal-magenta);
+  --cude-terminal-color-cyan: var(--cude-terminal-cyan);
+  --cude-terminal-color-white: var(--cude-terminal-white);
+  --cude-terminal-color-brightBlack: var(--cude-terminal-brightBlack);
+  --cude-terminal-color-brightRed: var(--cude-terminal-brightRed);
+  --cude-terminal-color-brightGreen: var(--cude-terminal-brightGreen);
+  --cude-terminal-color-brightYellow: var(--cude-terminal-brightYellow);
+  --cude-terminal-color-brightBlue: var(--cude-terminal-brightBlue);
+  --cude-terminal-color-brightMagenta: var(--cude-terminal-brightMagenta);
+  --cude-terminal-color-brightCyan: var(--cude-terminal-brightCyan);
+  --cude-terminal-color-brightWhite: var(--cude-terminal-brightWhite);
+}
+

@@ -1,0 +1,24 @@
+/* Cude.new - toast.scss */
+@use '../z-index';
+
+.Toastify__toast-container {
+  @extend .z-toast;
+}
+
+.Toastify__toast {
+  --at-apply: shadow-md;
+
+  background-color: var(--cude-bg-depth-2);
+  color: var(--cude-textPrimary);
+  border: 1px solid var(--cude-borderColor);
+}
+
+.Toastify__close-button {
+  color: var(--cude-item-contentDefault);
+  opacity: 1;
+  transition: none;
+
+  &:hover {
+    color: var(--cude-item-contentActive);
+  }
+}

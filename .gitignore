@@ -1,0 +1,98 @@
+# Cude.new - .gitignore
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+.vscode/*
+.vscode/launch.json
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+/.history
+/.cache
+/build
+functions/build/
+.env.local
+.env
+.dev.vars
+*.vars
+.wrangler
+_worker.bundle
+
+Modelfile
+modelfiles
+
+# ---------------------------------------------------------------------------
+# Cude.new verification artifacts
+#
+# Policy: anything a script regenerates stays out of source control. Every entry
+# below is reproducible with a single command, noted beside it.
+#
+#   verification-android/        node scripts/generate-android-verify.mjs   (~482 MB with Gradle/node_modules)
+#   verification-vscode/         node scripts/cude-verify.mjs               (~24 MB with node_modules + .vsix)
+#   verification-product-family/ node scripts/cude-architecture-verify.mjs  (regeneratedon every run, timestamped)
+#   .qa/                         node scripts/qa-final-v3.mjs               (screenshots, local evidence only)
+#
+# verification-finance/ source IS tracked: it is small (~74 KB) and
+# scripts/test-export.mjs reads it directly. Its build output is ignored.
+# ---------------------------------------------------------------------------
+.qa/
+verification-android/
+verification-vscode/
+verification-product-family/
+verification-design-approval/
+verification-finance/node_modules/
+verification-finance/dist/
+
+# Build output inside any generated verification project.
+verification-*/**/node_modules/
+verification-*/**/build/
+verification-*/**/out/
+verification-*/**/.gradle/
+android-sdk/
+dist/win-unpacked/
+*.vsix
+*.apk
+*.aab
+*.zip
+!examples/**/*.zip
+
+# Generated analysis and interpreter output
+__pycache__/
+*.py[cod]
+dead.json
+unreached.json
+vite.config.ts.timestamp-*.mjs
+
+# Android / Electron build output
+android/app/build/
+.expo/
+
+# docs ignore
+site
+
+# Local helper output
+app/commit.json
+changelogUI.md
+docs/instructions/Roadmap.md
+.cursorrules
+
+.qodo
+
+# TypeScript incremental build state
+tsconfig.tsbuildinfo

@@ -1,0 +1,19 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Cude icon">
+  <defs>
+    <linearGradient id="mg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0F0F2"/>
+      <stop offset="45%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#8A8A90"/>
+    </linearGradient>
+    <linearGradient id="mg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D0D0D4"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#9A9AA0"/>
+    </linearGradient>
+  </defs>
+  <!-- Hexagon -->
+  <path d="M50 6 L86 26 L86 74 L50 94 L14 74 L14 26 Z" fill="none" stroke="url(#mg)" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- <> inside -->
+  <path d="M38 34 L24 50 L38 66" fill="none" stroke="url(#mg2)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62 34 L76 50 L62 66" fill="none" stroke="url(#mg2)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

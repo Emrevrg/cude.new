@@ -1,0 +1,157 @@
+/* Cude.new - index.scss */
+@use 'variables.scss';
+@use 'z-index.scss';
+@use 'animations.scss';
+@use 'components/terminal.scss';
+@use 'components/resize-handle.scss';
+@use 'components/code.scss';
+@use 'components/editor.scss';
+@use 'components/toast.scss';
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--cude-bg-depth-1);
+}
+
+/*
+ * A bare <button> carries the browser's own grey — #F0F0F0 on this platform.
+ * That is invisible against the light theme and a glaring white box against
+ * the dark one, which is what the sidebar toggle, the database control and the
+ * panel's close button all looked like. Buttons here are styled by their
+ * classes; anything a class does not set should come from nowhere.
+ */
+button {
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+
+:root {
+  --gradient-opacity: 0.8;
+  --primary-color: rgba(18, 18, 18, var(--gradient-opacity));
+  --secondary-color: rgba(34, 34, 34, var(--gradient-opacity));
+  --accent-color: rgba(255, 255, 255, var(--gradient-opacity));
+}
+
+.modern-scrollbar {
+  overflow: auto;
+
+  // WebKit scrollbar styling
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    // Use CSS variables for colors
+    background-color: var(--modern-scrollbar-thumb-background);
+    border-radius: 9999px; // pill shape
+    border: 2px solid transparent; // for padding-like effect
+    background-clip: content-box;
+    transition: background-color 0.2s ease-in-out; // Add transition
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    // Use CSS variable for hover color
+    background-color: var(--modern-scrollbar-thumb-backgroundHover);
+  }
+
+  // Firefox support
+  scrollbar-width: thin;
+  // Use CSS variables for Firefox colors
+  scrollbar-color: var(--modern-scrollbar-thumb-backgroundHover) transparent; // Use hover color for thumb for consistency
+}
+
+.modern-scrollbar-invert {
+  &::-webkit-scrollbar-thumb {
+    // Override with a contrasting color, e.g., primary text color with transparency
+    background-color: color-mix(in srgb, var(--cude-textPrimary), transparent 70%);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    // Darker/more opaque version on hover
+    background-color: color-mix(in srgb, var(--cude-textPrimary), transparent 50%);
+  }
+
+  // Firefox support for inverted colors
+  scrollbar-color: color-mix(in srgb, var(--cude-textPrimary), transparent 50%) transparent;
+}
+
+/*
+ * Horizontal tab strips that scroll on narrow viewports. The scrollbar itself
+ * would eat vertical space in a compact toolbar, so it is hidden while the
+ * element stays scrollable by touch and wheel.
+ */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*
+ * Respect the operating system's reduced-motion preference. Transitions and
+ * animations collapse to a near-instant duration rather than being removed, so
+ * state changes remain perceivable without motion.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * Brand artwork, per theme.
+ *
+ * The lockup and mark are metallic silver, authored for dark surfaces; on a
+ * light theme the highlights approach white and the wordmark disappears. Both
+ * variants are pre-rendered, so the theme only has to choose between them.
+ * Deliberately no filter and no transition here: the previous filter-based
+ * version could be left stuck at the identity filter when the transition never
+ * got a start frame, which is exactly how the logo went invisible.
+ */
+.cude-brand-dark,
+.cude-brand-light {
+  display: none;
+
+  /*
+   * The global `img { max-width: 100% }` reset makes width depend on the
+   * parent, while the parent is an auto-width flex box whose width depends on
+   * the image. That circular constraint collapsed the lockup to 17px. Sizing
+   * from the intrinsic aspect ratio instead breaks the cycle.
+   */
+  max-width: none;
+  flex: 0 0 auto;
+}
+
+/* Dark is the default, so it also covers a document with no data-theme yet. */
+:root .cude-brand-dark,
+:root[data-theme='dark'] .cude-brand-dark,
+html.dark .cude-brand-dark {
+  display: inline-block;
+}
+
+:root[data-theme='light'] .cude-brand-dark,
+html.light .cude-brand-dark {
+  display: none;
+}
+
+:root[data-theme='light'] .cude-brand-light,
+html.light .cude-brand-light {
+  display: inline-block;
+}

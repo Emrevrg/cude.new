@@ -1,0 +1,51 @@
+/* Cude.new - z-index.scss */
+$zIndexMax: 999;
+
+/*
+ * The header logo only needs to clear the workbench, not the whole app. It sat
+ * at 998 — above the sidebar — which left header content painted on top of the
+ * open side panel.
+ */
+.z-logo {
+  z-index: 10;
+}
+
+/*
+ * The side panel is a modal surface: it must cover the page, and its scrim must
+ * cover everything except the panel itself.
+ */
+.z-sidebar-backdrop {
+  z-index: $zIndexMax - 1;
+}
+
+.z-sidebar {
+  z-index: $zIndexMax;
+}
+
+.z-port-dropdown {
+  z-index: $zIndexMax - 3;
+}
+
+.z-iframe-overlay {
+  z-index: $zIndexMax - 4;
+}
+
+.z-prompt {
+  z-index: 2;
+}
+
+.z-workbench {
+  z-index: 3;
+}
+
+.z-file-tree-breadcrumb {
+  z-index: $zIndexMax - 1;
+}
+
+.z-max {
+  z-index: $zIndexMax;
+}
+
+.z-toast {
+  z-index: $zIndexMax + 1;
+}

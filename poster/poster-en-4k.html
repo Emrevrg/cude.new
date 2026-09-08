@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=3840, initial-scale=1">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    width:3840px;height:2160px;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background: linear-gradient(180deg, #FAFAFB 0%, #F2F2F3 35%, #E8E8EA 70%, #DDE0E3 100%);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  .poster{
+    width:3640px;height:1960px;
+    display:flex;gap:0;
+    position:relative;
+  }
+  /* LEFT */
+  .left{
+    width:1380px;padding:90px 80px 80px 80px;
+    display:flex;flex-direction:column;gap:0;
+  }
+  .logo{
+    display:flex;align-items:center;gap:18px;margin-bottom:56px;
+  }
+  .logo-icon{
+    width:64px;height:64px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+  }
+  .logo-text{
+    font-size:46px;font-weight:700;letter-spacing:-0.04em;line-height:1;
+    background: linear-gradient(180deg, #2A2A2E 0%, #5A5A5E 50%, #2A2A2E 100%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .logo-text span.dot{font-weight:300;color:#6A6A6E;-webkit-text-fill-color:#6A6A6E}
+  .logo-text span.new{font-weight:300;color:#8A8A8E;-webkit-text-fill-color:#8A8A8E}
+  .headline{
+    font-size:92px;font-weight:800;line-height:0.95;letter-spacing:-0.05em;color:#0A0A0F;
+    margin-bottom:28px;
+  }
+  .headline .light{font-weight:600;color:#1A1A1F}
+  .support{
+    font-size:26px;line-height:1.45;color:#4A4A50;font-weight:400;max-width:620px;margin-bottom:48px;
+  }
+  .features{display:flex;flex-direction:column;gap:0;flex:1}
+  .feat{
+    display:flex;gap:20px;padding:22px 0;border-top:1px solid rgba(0,0,0,0.07);
+  }
+  .feat:last-child{border-bottom:1px solid rgba(0,0,0,0.07)}
+  .feat-icon{
+    width:52px;height:52px;min-width:52px;background:#0A0A0F;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  }
+  .feat-icon svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .feat-text h4{font-size:20px;font-weight:700;color:#0A0A0F;letter-spacing:-0.02em;margin-bottom:6px}
+  .feat-text p{font-size:18px;line-height:1.4;color:#5A5A62;font-weight:400}
+  .badge{
+    margin-top:36px;display:inline-flex;align-self:flex-start;
+    padding:10px 18px;border:1px solid rgba(0,0,0,0.12);border-radius:999px;
+    font-size:13px;font-weight:600;letter-spacing:0.14em;color:#3A3A42;background:rgba(255,255,255,0.7);backdrop-filter:blur(8px);
+  }
+  .footer{
+    margin-top:28px;font-size:13px;letter-spacing:0.08em;color:#7A7A82;font-weight:500;
+  }
+  .footer strong{color:#0A0A0F;font-weight:700}
+  /* RIGHT - LAPTOP */
+  .right{
+    flex:1;display:flex;align-items:center;justify-content:center;padding:40px 0 40px 40px;
+    position:relative;
+  }
+  .laptop{
+    width:1960px;height:1240px;position:relative;
+    filter:drop-shadow(0 40px 80px rgba(0,0,0,0.18)) drop-shadow(0 12px 32px rgba(0,0,0,0.12));
+  }
+  .laptop-screen{
+    width:100%;height:1080px;background:#0A0A0F;border-radius:18px;padding:12px;
+    border:1px solid #2A2A2E;overflow:hidden;position:relative;
+  }
+  .screen-inner{
+    width:100%;height:100%;background:#FFFFFF;border-radius:12px;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  /* Product UI inside screen - faithful to source 1 but provider-neutral */
+  .prod-header{
+    height:44px;display:flex;align-items:center;gap:12px;padding:0 18px;border-bottom:1px solid #F0F0F2;background:#FAFAFB;
+    font-size:12px;color:#6A6A6E;
+  }
+  .prod-header .brand{font-weight:700;color:#0A0A0F;font-size:13px}
+  .prod-header .pill{padding:3px 7px;border:1px solid #E0E0E4;border-radius:6px;font-size:10px;font-weight:600;letter-spacing:0.06em;background:#fff}
+  .prod-body{
+    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;background: radial-gradient(ellipse at 50% 0%, #F8F8FA 0%, #FFFFFF 60%);
+    text-align:center;
+  }
+  .prod-badge{
+    display:inline-flex;padding:6px 12px;border:1px solid #E8E8EA;border-radius:999px;font-size:10px;letter-spacing:0.1em;font-weight:600;color:#5A5A62;background:#fff;margin-bottom:18px;
+  }
+  .prod-title{font-size:38px;font-weight:800;letter-spacing:-0.04em;color:#0A0A0F;margin-bottom:6px}
+  .prod-sub{font-size:14px;color:#6A6A72;margin-bottom:6px}
+  .prod-desc{font-size:11px;line-height:1.5;color:#7A7A82;max-width:520px;margin-bottom:22px}
+  .composer{
+    width:560px;background:#fff;border:1px solid #E2E2E6;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.06);
+    text-align:left;
+  }
+  .composer-top{padding:14px 16px;font-size:12px;color:#5A5A62;border-bottom:1px solid #F0F0F2}
+  .composer-platforms{padding:10px 14px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;background:#FAFAFB;border-bottom:1px solid #F0F0F2}
+  .composer-platforms .label{font-size:9px;font-weight:700;letter-spacing:0.08em;color:#8A8A92;margin-right:4px}
+  .plat{padding:5px 9px;border:1px solid #E2E2E6;border-radius:999px;font-size:10px;font-weight:600;background:#fff;color:#3A3A42}
+  .plat.active{background:#0A0A0F;color:#fff;border-color:#0A0A0F}
+  .composer-bottom{padding:10px 14px;display:flex;align-items:center;gap:8px}
+  .composer-bottom .icon{width:20px;height:20px;border-radius:6px;background:#F2F2F4;display:flex;align-items:center;justify-content:center;font-size:10px;color:#8A8A92}
+  .composer-bottom .model{font-size:11px;color:#6A6A72;display:flex;align-items:center;gap:6px}
+  .composer-bottom .send{margin-left:auto;width:26px;height:26px;background:#0AFF6B;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#0A0A0F;font-weight:700}
+  .prod-actions{margin-top:14px;display:flex;gap:8px}
+  .prod-actions .btn{padding:7px 14px;border:1px solid #E2E2E6;border-radius:999px;font-size:11px;font-weight:600;background:#fff;color:#0A0A0F}
+  .prod-examples{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:560px}
+  .prod-examples .ex{padding:5px 10px;border:1px solid #EAEAEA;border-radius:999px;font-size:10px;background:#fff;color:#5A5A62}
+  .laptop-base{
+    height:32px;margin:0 80px;background:linear-gradient(180deg, #C8C8CC 0%, #A8A8AC 50%, #8A8A8E 100%);
+    border-radius:0 0 18px 18px;position:relative;
+    box-shadow:0 8px 24px rgba(0,0,0,0.12);
+  }
+  .laptop-base::after{
+    content:'';position:absolute;left:50%;top:0;transform:translateX(-50%);width:180px;height:6px;background:#6A6A6E;border-radius:0 0 6px 6px;
+  }
+  .reflection{
+    position:absolute;bottom:-60px;left:80px;right:80px;height:60px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.07) 0%, transparent 100%);
+    filter:blur(12px);border-radius:50%;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="left">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="m1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#E8E8EA"/><stop offset="0.5" stop-color="#FFFFFF"/><stop offset="1" stop-color="#9A9A9E"/>
+            </linearGradient>
+            <linearGradient id="m2" x1="0" y1="0" x2="0" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2A2A2E"/><stop offset="1" stop-color="#5A5A62"/>
+            </linearGradient>
+          </defs>
+          <path d="M32 6 L56 18 L56 46 L32 58 L8 46 L8 18 Z" fill="none" stroke="url(#m1)" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M24 26 L36 32 L24 38" stroke="url(#m1)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text">cude<span class="dot">.</span><span class="new">new</span></div>
+      </div>
+
+      <div class="headline">Build software with<br><span class="light">an AI engineering team.</span></div>
+      <div class="support">From idea to architecture, design, build,<br>review, and release — in one<br>focused workspace.</div>
+
+      <div class="features">
+        <div class="feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="feat-text">
+            <h4>Design review before build</h4>
+            <p>Describe your idea and review<br>the plan before any code is written.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <div class="feat-text">
+            <h4>Multi-platform generation</h4>
+            <p>Generate for Web, PWA, Android,<br>iOS, Desktop, Extension, API, and more.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <div class="feat-text">
+            <h4>Architecture-aware workflow</h4>
+            <p>Plans, tasks, and code stay aligned<br>from start to release.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/><path d="M 8 12 A 4 4 0 0 0 12 8"/></svg>
+          </div>
+          <div class="feat-text">
+            <h4>Theme system + workbench</h4>
+            <p>Consistent UI, smart tools,<br>built for deep focus.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="badge">OPEN-SOURCE • MULTI-MODEL • MULTI-AGENT</div>
+      <div class="footer"><strong>Cude.new</strong> &nbsp;·&nbsp; Plan smarter. Build faster. Release with confidence.</div>
+    </div>
+
+    <div class="right">
+      <div class="laptop">
+        <div class="laptop-screen">
+          <div class="screen-inner">
+            <div class="prod-header">
+              <span class="brand">Cude.new</span>
+              <span class="pill">AUTO</span><span class="pill">IDLE</span>
+              <span style="margin-left:auto;font-size:11px;color:#9A9AA0">OPEN-SOURCE • MULTI-MODEL • MULTI-AGENT</span>
+            </div>
+            <div class="prod-body">
+              <div class="prod-badge">OPEN-SOURCE • MULTI-MODEL • MULTI-AGENT</div>
+              <div class="prod-title">Cude.new</div>
+              <div class="prod-sub">Build software with an AI engineering team.</div>
+              <div class="prod-desc">Describe software. Cude plans it, architects it, builds it, runs it, tests it, repairs it, reviews it, and prepares it for release.</div>
+
+              <div class="composer">
+                <div class="composer-top">What do you want to build?</div>
+                <div class="composer-platforms">
+                  <span class="label">PLATFORM</span>
+                  <span class="plat active">AUTO</span><span class="plat">WEB</span><span class="plat">FULL-STACK</span><span class="plat">PWA</span><span class="plat">ANDROID</span><span class="plat">MOBILE</span><span class="plat">DESKTOP</span><span class="plat">EXTENSION</span><span class="plat">VS CODE</span><span class="plat">API</span>
+                </div>
+                <div class="composer-bottom">
+                  <span class="icon">◈</span><span class="icon">◇</span><span class="icon">⬡</span><span class="icon">⬢</span><span class="icon">✦</span><span class="icon">♫</span>
+                  <span class="model">›&nbsp; AUTO</span>
+                  <span class="send">↗</span>
+                </div>
+              </div>
+
+              <div class="prod-actions">
+                <span class="btn">↑ Import Chat</span><span class="btn">↑ Import Folder</span><span class="btn" style="color:#6A6A72">Clone a repo</span>
+              </div>
+              <div class="prod-examples">
+                <span class="ex">Build a habit tracker Android app with offline storage</span>
+                <span class="ex">Build a todo app in React using Tailwind</span>
+                <span class="ex">Build a simple blog using Astro</span>
+                <span class="ex">Create a Chrome extension that summarizes the current page</span>
+                <span class="ex">Build a desktop Markdown editor with autosave</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base"></div>
+        <div class="reflection"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

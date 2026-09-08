@@ -1,0 +1,113 @@
+// Cude.new - ProgressCompilation.tsx (Cude product surface, 2026)
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { useState } from 'react';
+import type { ProgressAnnotation } from '~/types/context';
+import { classNames } from '~/utils/classNames';
+import { cubicEasingFn } from '~/utils/easings';
+
+export default function ProgressCompilation({ data }: { data?: ProgressAnnotation[] }) {
+  const [progressList, setProgressList] = React.useState<ProgressAnnotation[]>([]);
+  const [expanded, setExpanded] = useState(false);
+  React.useEffect(() => {
+    if (!data || data.length == 0) {
+      setProgressList([]);
+      return;
+    }
+
+    const progressMap = new Map<string, ProgressAnnotation>();
+    data.forEach((x) => {
+      const existingProgress = progressMap.get(x.label);
+
+      if (existingProgress && existingProgress.status === 'complete') {
+        return;
+      }
+
+      progressMap.set(x.label, x);
+    });
+
+    const newData = Array.from(progressMap.values());
+    newData.sort((a, b) => a.order - b.order);
+    setProgressList(newData);
+  }, [data]);
+
+  if (progressList.length === 0) {
+    return <></>;
+  }
+
+  return (
+    <AnimatePresence>
+      <div
+        className={classNames(
+          'bg-cude-background-depth-2',
+          'border border-cude-borderColor',
+          'shadow-lg rounded-lg relative w-full max-w-chat mx-auto z-prompt max-h-32 overflow-auto',
+          'p-1',
+        )}
+      >
+        <div
+          className={classNames(
+            'bg-cude-item-backgroundAccent',
+            'p-1 rounded-lg text-cude-item-contentAccent',
+            'flex ',
+          )}
+        >
+          <div className="flex-1">
+            <AnimatePresence>
+              {expanded ? (
+                <motion.div
+                  className="actions"
+                  initial={{ height: 0 }}
+                  animate={{ height: 'auto' }}
+                  exit={{ height: '0px' }}
+                  transition={{ duration: 0.15 }}
+                >
+                  {progressList.map((x, i) => {
+                    return <ProgressItem key={i} progress={x} />;
+                  })}
+                </motion.div>
+              ) : (
+                <ProgressItem progress={progressList.slice(-1)[0]} />
+              )}
+            </AnimatePresence>
+          </div>
+          <motion.button
+            initial={{ width: 0 }}
+            animate={{ width: 'auto' }}
+            exit={{ width: 0 }}
+            transition={{ duration: 0.15, ease: cubicEasingFn }}
+            className=" p-1 rounded-lg bg-cude-item-backgroundAccent hover:bg-cude-artifacts-backgroundHover"
+            onClick={() => setExpanded((v) => !v)}
+          >
+            <div className={expanded ? 'i-ph:caret-up-bold' : 'i-ph:caret-down-bold'}></div>
+          </motion.button>
+        </div>
+      </div>
+    </AnimatePresence>
+  );
+}
+
+const ProgressItem = ({ progress }: { progress: ProgressAnnotation }) => {
+  return (
+    <motion.div
+      className={classNames('flex text-sm gap-3')}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.15 }}
+    >
+      <div className="flex shrink-0 items-center gap-1.5">
+        {progress.status === 'in-progress' ? (
+          <div className="i-svg-spinners:90-ring-with-bg" aria-hidden="true" />
+        ) : progress.status === 'complete' ? (
+          <div className="i-ph:check" aria-hidden="true" />
+        ) : null}
+        <span className="rounded bg-cude-background-depth-3 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-cude-textTertiary">
+          {progress.label}
+        </span>
+      </div>
+      <span className="min-w-0 truncate" title={progress.message}>
+        {progress.message}
+      </span>
+    </motion.div>
+  );
+};

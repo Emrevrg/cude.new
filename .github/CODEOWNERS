@@ -1,0 +1,31 @@
+# Cude.new - CODEOWNERS
+# Code Owners for Cude.new
+# These users/teams will automatically be requested for review when files are modified
+
+# Global ownership - repository maintainers
+* @Emrevrg
+
+# GitHub workflows and CI/CD configuration - require maintainer review
+/.github/ @Emrevrg
+/package.json @Emrevrg
+/pnpm-lock.yaml @Emrevrg
+
+# Security-sensitive configurations - require maintainer review
+/.env* @Emrevrg
+/wrangler.toml @Emrevrg
+/Dockerfile @Emrevrg
+/docker-compose.yaml @Emrevrg
+
+# Core application architecture - require maintainer review
+/app/lib/.server/ @Emrevrg
+/app/routes/api.* @Emrevrg
+
+# Build and deployment configuration - require maintainer review
+/vite*.config.ts @Emrevrg
+/tsconfig.json @Emrevrg
+/uno.config.ts @Emrevrg
+/eslint.config.mjs @Emrevrg
+
+# Documentation (optional review)
+/*.md
+/docs/

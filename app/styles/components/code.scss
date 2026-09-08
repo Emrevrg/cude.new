@@ -1,0 +1,10 @@
+/* Cude.new - code.scss */
+.actions .shiki {
+  background-color: var(--cude-actions-code-background) !important;
+}
+
+.shiki {
+  &:not(:has(.actions), .actions *, .mcp-tool-invocation-code *) {
+    background-color: var(--cude-messages-code-background) !important;
+  }
+}

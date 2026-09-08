@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="180" viewBox="0 0 1000 180" role="img" aria-labelledby="t d">
+  <title id="t">Cude.new engineering flow</title><desc id="d">An animated path from intent to verified release.</desc>
+  <defs><linearGradient id="g"><stop stop-color="#111"/><stop offset=".5" stop-color="#aaa"/><stop offset="1" stop-color="#111"/></linearGradient><style>.s{font-family:Inter,Segoe UI,Arial,sans-serif}.m{font-family:ui-monospace,Consolas,monospace}.run{animation:r 5s linear infinite}@keyframes r{from{transform:translateX(0)}to{transform:translateX(860px)}}@media(prefers-reduced-motion:reduce){.run{animation:none}}</style></defs>
+  <rect width="1000" height="180" rx="16" fill="#fafafa" stroke="#d8d8d8"/><path d="M70 88H930" stroke="url(#g)" stroke-width="2"/>
+  <g fill="#fff" stroke="#222"><circle cx="70" cy="88" r="10"/><circle cx="242" cy="88" r="10"/><circle cx="414" cy="88" r="10"/><circle cx="586" cy="88" r="10"/><circle cx="758" cy="88" r="10"/><circle cx="930" cy="88" r="10"/></g>
+  <g class="s" font-size="13" fill="#111" text-anchor="middle"><text x="70" y="126">Intent</text><text x="242" y="126">Plan</text><text x="414" y="126">Design</text><text x="586" y="126">Build</text><text x="758" y="126">Test + Repair</text><text x="930" y="126">Verified</text></g>
+  <g class="run"><circle cx="70" cy="88" r="7" fill="#111"/><circle cx="70" cy="88" r="14" fill="none" stroke="#111" opacity=".25"/></g><text x="28" y="34" class="m" font-size="11" fill="#777">ONE VISIBLE, REPRODUCIBLE PIPELINE</text>
+</svg>

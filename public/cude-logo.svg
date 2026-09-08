@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 48" width="320" height="48" role="img" aria-label="Cude.new">
+  <defs>
+    <linearGradient id="mg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8E8EA"/><stop offset="50%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#8A8A90"/>
+    </linearGradient>
+    <linearGradient id="mg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D0D0D4"/><stop offset="50%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#9A9AA0"/>
+    </linearGradient>
+    <style>
+      .word-cude{fill:currentColor;font-family:Inter,system-ui,sans-serif;font-weight:700;font-size:32px;letter-spacing:-0.04em}
+      .word-new{fill:currentColor;font-family:Inter,system-ui,sans-serif;font-weight:300;font-size:32px;letter-spacing:-0.04em;opacity:0.7}
+      .dot{fill:currentColor;opacity:0.5}
+    </style>
+  </defs>
+  <!-- Icon -->
+  <g transform="translate(0,4)">
+    <path d="M24 4 L40 12 L40 28 L24 36 L8 28 L8 12 Z" fill="none" stroke="url(#mg)" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M18 14 L11 20 L18 26" fill="none" stroke="url(#mg2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M30 14 L37 20 L30 26" fill="none" stroke="url(#mg2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Wordmark - theme adaptive via currentColor -->
+  <g transform="translate(54,0)">
+    <text x="0" y="32" class="word-cude">cude<tspan class="dot">.</tspan><tspan class="word-new">new</tspan></text>
+  </g>
+</svg>

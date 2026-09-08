@@ -1,0 +1,39 @@
+# Cude.new - electron-builder.yml
+appId: com.cude.new
+productName: Cude.new
+executableName: Cude.new
+directories:
+  buildResources: assets
+  output: dist
+files:
+  - build/**/*
+  - package.json
+  - '!**/verification-*'
+  - '!**/.qa/**'
+  - '!**/scripts/**'
+  - '!**/docs/**'
+  - '!node_modules/.cache/**'
+asar: false
+extraMetadata:
+  main: build/electron/main/index.mjs
+forceCodeSigning: false
+win:
+  icon: assets/icons/icon.ico
+  target:
+    - dir
+  signAndEditExecutable: false
+  verifyUpdateCodeSignature: false
+linux:
+  icon: assets/icons/icon.png
+  target:
+    - dir
+mac:
+  icon: assets/icons/icon.icns
+npmRebuild: false
+publish:
+  provider: github
+  owner: Emrevrg
+  repo: cude.new
+  private: false
+electronDownload:
+  mirror: https://npmmirror.com/mirrors/electron/

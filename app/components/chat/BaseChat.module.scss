@@ -1,0 +1,114 @@
+/* Cude.new - BaseChat.module.scss */
+.BaseChat {
+  &[data-chat-visible='false'] {
+    --workbench-inner-width: 100%;
+    --workbench-left: 0;
+
+    .Chat {
+      --at-apply: cude-ease-cubic-bezier;
+      transition-property: transform, opacity;
+      transition-duration: 0.3s;
+      will-change: transform, opacity;
+      transform: translateX(-50%);
+      opacity: 0;
+    }
+  }
+}
+
+.Chat {
+  opacity: 1;
+}
+
+.PromptEffectContainer {
+  --prompt-container-offset: 50px;
+  --prompt-line-stroke-width: 1px;
+  position: absolute;
+  pointer-events: none;
+  // Keep the decorative SVG inside the composer; a negative inset added
+  // horizontal scrolling to the entire page on phones.
+  --prompt-container-offset: 0px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.PromptEffectLine {
+  width: calc(100% - var(--prompt-container-offset) + var(--prompt-line-stroke-width));
+  height: calc(100% - var(--prompt-container-offset) + var(--prompt-line-stroke-width));
+  x: calc(var(--prompt-container-offset) / 2 - var(--prompt-line-stroke-width) / 2);
+  y: calc(var(--prompt-container-offset) / 2 - var(--prompt-line-stroke-width) / 2);
+  rx: calc(8px - var(--prompt-line-stroke-width));
+  fill: transparent;
+  stroke-width: var(--prompt-line-stroke-width);
+  stroke: url(#line-gradient);
+  stroke-dasharray: 35px 65px;
+  stroke-dashoffset: 10;
+}
+
+.PromptShine {
+  fill: url(#shine-gradient);
+  mix-blend-mode: overlay;
+}
+
+
+/*
+ * The light that travels the border while the box has focus.
+ *
+ * The segment is measured in pathLength units, so one lap is exactly 100
+ * whatever the box's size — the speed stays the same as the box grows with the
+ * text. The colour is the active border token: near-black on the light theme,
+ * white on the dark one, so it reads on both.
+ */
+@keyframes prompt-orbit {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+.PromptEffectTrail {
+  width: calc(100% - var(--prompt-container-offset) + var(--prompt-line-stroke-width));
+  height: calc(100% - var(--prompt-container-offset) + var(--prompt-line-stroke-width));
+  x: calc(var(--prompt-container-offset) / 2 - var(--prompt-line-stroke-width) / 2);
+  y: calc(var(--prompt-container-offset) / 2 - var(--prompt-line-stroke-width) / 2);
+  rx: calc(8px - var(--prompt-line-stroke-width));
+  fill: transparent;
+  stroke-width: var(--prompt-line-stroke-width);
+  stroke: transparent;
+  opacity: 0;
+}
+
+.PromptFocused {
+  .PromptEffectLine {
+    stroke: var(--cude-borderColorActive);
+    stroke-dasharray: 18 82;
+    stroke-dashoffset: 0;
+    opacity: 0.9;
+    animation: prompt-orbit 3s linear infinite;
+    filter: drop-shadow(0 0 3px var(--cude-borderColorActive));
+  }
+
+  /* A second, fainter segment opposite the first, so the box is lit rather
+     than chased by a single dot. */
+  .PromptEffectTrail {
+    stroke: var(--cude-borderColorActive);
+    stroke-dasharray: 10 90;
+    stroke-dashoffset: -50;
+    opacity: 0.35;
+    animation: prompt-orbit 3s linear infinite;
+  }
+}
+
+/* Motion that loops forever is what this setting exists for. */
+@media (prefers-reduced-motion: reduce) {
+  .PromptFocused {
+    .PromptEffectLine,
+    .PromptEffectTrail {
+      animation: none;
+    }
+
+    .PromptEffectLine {
+      stroke-dasharray: none;
+      opacity: 0.6;
+    }
+  }
+}

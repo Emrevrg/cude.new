@@ -1,0 +1,123 @@
+# Cude.new - line ending and diff policy
+#
+# The repository stores LF for every text file. Checkouts on Windows keep LF too,
+# which is what the toolchain (prettier, eslint, husky) expects. This removes the
+# CRLF-vs-LF churn that otherwise shows up as hundreds of "modified" files.
+
+* text=auto eol=lf
+
+# ---------------------------------------------------------------------------
+# Text formats. `text=auto` already covers these; they are listed so the intent
+# survives if the default is ever narrowed.
+# ---------------------------------------------------------------------------
+*.ts        text eol=lf
+*.tsx       text eol=lf
+*.js        text eol=lf
+*.jsx       text eol=lf
+*.mjs       text eol=lf
+*.cjs       text eol=lf
+*.json      text eol=lf
+*.jsonc     text eol=lf
+*.md        text eol=lf
+*.txt       text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.toml      text eol=lf
+*.css       text eol=lf
+*.scss      text eol=lf
+*.html      text eol=lf
+*.xml       text eol=lf
+*.svg       text eol=lf
+*.sql       text eol=lf
+*.graphql   text eol=lf
+*.kt        text eol=lf
+*.java      text eol=lf
+*.swift     text eol=lf
+*.rs        text eol=lf
+*.go        text eol=lf
+*.py        text eol=lf
+*.gradle    text eol=lf
+*.pro       text eol=lf
+
+# Shell scripts must be LF or they break on POSIX hosts.
+*.sh        text eol=lf
+*.bash      text eol=lf
+
+# Windows scripts are conventionally CRLF.
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+
+# PowerShell tolerates either; keep LF for consistency with the rest of the repo.
+*.ps1       text eol=lf
+*.psm1      text eol=lf
+*.psd1      text eol=lf
+
+# ---------------------------------------------------------------------------
+# Dotfiles. A leading-dot filename is not matched by `*.name`, so these need
+# their exact names — the previous policy silently matched none of them.
+# ---------------------------------------------------------------------------
+.gitignore      text eol=lf
+.dockerignore   text eol=lf
+.gitattributes  text eol=lf
+.editorconfig   text eol=lf
+.prettierrc     text eol=lf
+.prettierignore text eol=lf
+.eslintignore   text eol=lf
+.npmrc          text eol=lf
+.nvmrc          text eol=lf
+Dockerfile      text eol=lf
+
+# Secrets templates: never transform, never diff-normalise.
+.env*           -text -diff
+
+# ---------------------------------------------------------------------------
+# Binary formats — never line-ending converted, never diffed as text.
+# ---------------------------------------------------------------------------
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.webp    binary
+*.ico     binary
+*.avif    binary
+*.woff    binary
+*.woff2   binary
+*.ttf     binary
+*.otf     binary
+*.eot     binary
+*.pdf     binary
+*.zip     binary
+*.gz      binary
+*.tar     binary
+*.7z      binary
+*.mp4     binary
+*.webm    binary
+*.wasm    binary
+*.keystore binary
+*.jks     binary
+
+# Packaged build outputs.
+*.apk     binary
+*.aab     binary
+*.ipa     binary
+*.vsix    binary
+*.exe     binary
+*.dll     binary
+*.dmg     binary
+*.msi     binary
+*.deb     binary
+*.rpm     binary
+*.AppImage binary
+*.snap    binary
+*.jar     binary
+*.class   binary
+*.node    binary
+
+# ---------------------------------------------------------------------------
+# Generated files: still text and still reviewable, but collapsed in diffs and
+# excluded from language statistics.
+#
+# Note: verification fixtures are deliberately NOT marked binary — their
+# manifests are small JSON artefacts a reviewer should be able to read.
+# ---------------------------------------------------------------------------
+pnpm-lock.yaml  linguist-generated=true -diff

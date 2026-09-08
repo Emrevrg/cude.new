@@ -1,0 +1,23 @@
+import { chromium } from 'playwright';
+import fs from 'node:fs';
+const out='.qa/layout-2026-09-07'; fs.mkdirSync(out,{recursive:true});
+const browser=await chromium.launch(); const page=await browser.newPage({viewport:{width:1012,height:610}});
+const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+await page.goto('http://localhost:5174/',{waitUntil:'domcontentloaded',timeout:120000});
+await page.locator('textarea').first().waitFor({timeout:120000});
+await page.waitForTimeout(1500);
+const metrics=await page.evaluate(()=>{const nodes=[...document.querySelectorAll('*')];return nodes.filter(e=>e.scrollHeight>e.clientHeight+50 && /auto|scroll/.test(getComputedStyle(e).overflowY)).map(e=>({tag:e.tagName,cl:e.className,h:e.clientHeight,sh:e.scrollHeight}));});
+if(!metrics.length)throw Error('Landing cannot scroll');
+await page.locator('textarea').first().scrollIntoViewIfNeeded();await page.screenshot({path:out+'/landing-scroll.png'});
+await page.waitForFunction(()=>window.__cude,{timeout:90000});
+await page.evaluate(()=>{window.__cude.setChatStarted(true);window.__cude.showWorkbench(true)});
+await page.waitForTimeout(1000);await page.screenshot({path:out+'/workspace.png'});
+await page.getByRole('button',{name:'Toggle workspace',exact:true}).click();
+await page.waitForTimeout(400);
+await page.getByRole('button',{name:'Toggle workspace',exact:true}).click();
+await page.waitForTimeout(400);
+const horizontal=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);
+if(horizontal)throw Error('Horizontal page overflow');
+console.log(JSON.stringify({metrics,horizontal,errors}));
+await browser.close();
+

@@ -1,0 +1,44 @@
+# Cude.new — cache rules.
+#
+# Everything under /assets carries a content hash in its filename, so the file
+# at a given URL can never change. Those are safe to keep for a year and to
+# serve without asking. The default was `max-age=0, must-revalidate`, which
+# made a browser re-check every chunk on every visit — a few hundred round
+# trips for files it already had, and a slow start on a slow connection.
+#
+# The HTML document is the opposite case: it names the current hashed assets,
+# so a stale copy points at a deployment that no longer exists. It is always
+# revalidated.
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# No /icons/* block: the icons are .svg and .png, so the rules below already
+# cover them. A directory rule as well as an extension rule would mean two
+# Cache-Control headers on the same file, which is how this file goes wrong.
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# Brand images: named without a hash, so revalidate, but let the browser
+# reuse them for a day without asking first.
+/*.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.svg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/favicon.ico
+  Cache-Control: public, max-age=86400
+
+# Rules here are additive: every matching block contributes its headers, so a
+# Cache-Control in this catch-all would be appended to the one above and the
+# browser would see two conflicting values. The document's own caching is left
+# to the default (revalidate), which is what it should be — it names the
+# hashed assets, so a stale copy points at a deployment that is gone.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Never cache an answer that describes this machine or this account.
+/api/*
+  Cache-Control: no-store

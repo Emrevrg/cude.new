@@ -1,0 +1,136 @@
+/* Cude.new - editor.scss */
+:root {
+  --cm-backgroundColor: var(--cude-editor-backgroundColor, var(--cude-bg-depth-1));
+  --cm-textColor: var(--cude-editor-textColor, var(--cude-textPrimary));
+
+  /* Gutter */
+
+  --cm-gutter-backgroundColor: var(--cude-editor-gutter-backgroundColor, var(--cm-backgroundColor));
+  --cm-gutter-textColor: var(--cude-editor-gutter-textColor, var(--cude-textSecondary));
+  --cm-gutter-activeLineTextColor: var(--cude-editor-gutter-activeLineTextColor, var(--cm-gutter-textColor));
+
+  /* Fold Gutter */
+
+  --cm-foldGutter-textColor: var(--cude-editor-foldGutter-textColor, var(--cm-gutter-textColor));
+  --cm-foldGutter-textColorHover: var(--cude-editor-foldGutter-textColorHover, var(--cm-gutter-textColor));
+
+  /* Active Line */
+
+  --cm-activeLineBackgroundColor: var(--cude-editor-activeLineBackgroundColor, rgb(224 231 235 / 30%));
+
+  /* Cursor */
+
+  --cm-cursor-width: 2px;
+  --cm-cursor-backgroundColor: var(--cude-editor-cursorColor, var(--cude-textSecondary));
+
+  /* Matching Brackets */
+
+  --cm-matching-bracket: var(--cude-editor-matchingBracketBackgroundColor, rgb(50 140 130 / 0.3));
+
+  /* Selection */
+
+  --cm-selection-backgroundColorFocused: var(--cude-editor-selection-backgroundColor, #42b4ff);
+  --cm-selection-backgroundOpacityFocused: var(--cude-editor-selection-backgroundOpacity, 0.3);
+  --cm-selection-backgroundColorBlured: var(--cude-editor-selection-inactiveBackgroundColor, #c9e9ff);
+  --cm-selection-backgroundOpacityBlured: var(--cude-editor-selection-inactiveBackgroundOpacity, 0.3);
+
+  /* Panels */
+
+  --cm-panels-borderColor: var(--cude-editor-panels-borderColor, var(--cude-borderColor));
+
+  /* Search */
+
+  --cm-search-backgroundColor: var(--cude-editor-search-backgroundColor, var(--cm-backgroundColor));
+  --cm-search-textColor: var(--cude-editor-search-textColor, var(--cude-textSecondary));
+  --cm-search-closeButton-backgroundColor: var(--cude-editor-search-closeButton-backgroundColor, transparent);
+
+  --cm-search-closeButton-backgroundColorHover: var(
+    --cude-editor-search-closeButton-backgroundColorHover,
+    var(--cude-item-backgroundActive)
+  );
+
+  --cm-search-closeButton-textColor: var(
+    --cude-editor-search-closeButton-textColor,
+    var(--cude-item-contentDefault)
+  );
+
+  --cm-search-closeButton-textColorHover: var(
+    --cude-editor-search-closeButton-textColorHover,
+    var(--cude-item-contentActive)
+  );
+
+  --cm-search-button-backgroundColor: var(
+    --cude-editor-search-button-backgroundColor,
+    var(--cude-item-backgroundDefault)
+  );
+
+  --cm-search-button-backgroundColorHover: var(
+    --cude-editor-search-button-backgroundColorHover,
+    var(--cude-item-backgroundActive)
+  );
+
+  --cm-search-button-textColor: var(--cude-editor-search-button-textColor, var(--cude-textSecondary));
+
+  --cm-search-button-textColorHover: var(
+    --cude-editor-search-button-textColorHover,
+    var(--cude-textPrimary)
+  );
+
+  --cm-search-button-borderColor: var(--cude-editor-search-button-borderColor, transparent);
+  --cm-search-button-borderColorHover: var(--cude-editor-search-button-borderColorHover, transparent);
+
+  --cm-search-button-borderColorFocused: var(
+    --cude-editor-search-button-borderColorFocused,
+    var(--cude-borderColorActive)
+  );
+
+  --cm-search-input-backgroundColor: var(--cude-editor-search-input-backgroundColor, transparent);
+  --cm-search-input-textColor: var(--cude-editor-search-input-textColor, var(--cude-textPrimary));
+  --cm-search-input-borderColor: var(--cude-editor-search-input-borderColor, var(--cude-borderColor));
+
+  --cm-search-input-borderColorFocused: var(
+    --cude-editor-search-input-borderColorFocused,
+    var(--cude-borderColorActive)
+  );
+
+  /* Tooltip */
+
+  --cm-tooltip-backgroundColor: var(--cude-editor-tooltip-backgroundColor, var(--cm-backgroundColor));
+  --cm-tooltip-textColor: var(--cude-editor-tooltip-textColor, var(--cude-textPrimary));
+
+  --cm-tooltip-backgroundColorSelected: var(
+    --cude-editor-tooltip-backgroundColorSelected,
+    theme('colors.alpha.accent.30')
+  );
+
+  --cm-tooltip-textColorSelected: var(
+    --cude-editor-tooltip-textColorSelected,
+    var(--cude-textPrimary)
+  );
+
+  --cm-tooltip-borderColor: var(--cude-editor-tooltip-borderColor, var(--cude-borderColor));
+
+  --cm-searchMatch-backgroundColor: var(--cude-editor-searchMatch-backgroundColor, rgba(234, 92, 0, 0.33));
+}
+
+html[data-theme='light'] {
+  --cude-editor-gutter-textColor: #237893;
+  --cude-editor-gutter-activeLineTextColor: var(--cude-textPrimary);
+  --cude-editor-foldGutter-textColorHover: var(--cude-textPrimary);
+  --cude-editor-activeLineBackgroundColor: rgb(50 53 63 / 5%);
+  --cude-editor-tooltip-backgroundColorSelected: theme('colors.alpha.accent.20');
+  --cude-editor-search-button-backgroundColor: theme('colors.gray.100');
+  --cude-editor-search-button-backgroundColorHover: theme('colors.alpha.gray.10');
+}
+
+html[data-theme='dark'] {
+  --cm-backgroundColor: var(--cude-bg-depth-2);
+  --cude-editor-gutter-textColor: var(--cude-textTertiary);
+  --cude-editor-gutter-activeLineTextColor: var(--cude-textSecondary);
+  --cude-editor-selection-inactiveBackgroundOpacity: 0.3;
+  --cude-editor-activeLineBackgroundColor: rgb(50 53 63 / 50%);
+  --cude-editor-foldGutter-textColorHover: var(--cude-textPrimary);
+  --cude-editor-matchingBracketBackgroundColor: rgba(66, 180, 255, 0.3);
+  --cude-editor-search-button-backgroundColor: theme('colors.gray.800');
+  --cude-editor-search-button-backgroundColorHover: theme('colors.alpha.white.10');
+}

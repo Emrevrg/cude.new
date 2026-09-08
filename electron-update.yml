@@ -1,0 +1,5 @@
+# Cude.new - electron-update.yml
+owner: Emrevrg
+repo: cude.new
+provider: github
+private: false
