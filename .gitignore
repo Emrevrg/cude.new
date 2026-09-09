@@ -48,7 +48,7 @@ modelfiles
 #   verification-product-family/ node scripts/cude-architecture-verify.mjs  (regeneratedon every run, timestamped)
 #   .qa/                         node scripts/qa-final-v3.mjs               (screenshots, local evidence only)
 #
-# verification-finance/ source IS tracked: it is small (~74 KB) and
+# verification-showcase/ source IS tracked: it is small (~74 KB) and
 # scripts/test-export.mjs reads it directly. Its build output is ignored.
 # ---------------------------------------------------------------------------
 .qa/
@@ -56,8 +56,8 @@ verification-android/
 verification-vscode/
 verification-product-family/
 verification-design-approval/
-verification-finance/node_modules/
-verification-finance/dist/
+verification-showcase/node_modules/
+verification-showcase/dist/
 
 # Build output inside any generated verification project.
 verification-*/**/node_modules/

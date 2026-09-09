@@ -2,7 +2,7 @@
 /**
  * Cude.new - project export verification.
  *
- * Packages the finance fixture through the application's own export path, so
+ * Packages the generated showcase through the application's own export path, so
  * what is checked is the archive a user would actually get. This script used to
  * walk the directory and build its own zip, which verified the script rather
  * than the product.
@@ -16,7 +16,7 @@ import os from 'node:os';
 import JSZip from 'jszip';
 import { loadCudeModules, REPO_ROOT } from './lib/load-cude.mjs';
 
-const SOURCE = path.join(REPO_ROOT, 'verification-finance');
+const SOURCE = path.join(REPO_ROOT, 'verification-showcase');
 const OUTPUT = path.join(os.tmpdir(), 'cude-export-test.zip');
 
 const results = [];
@@ -54,7 +54,7 @@ function readWorkspace(dir, prefix = WORK_DIR) {
 }
 
 if (!fs.existsSync(SOURCE)) {
-  console.error('verification-finance/ is missing. Run: node scripts/generate-finance.mjs');
+  console.error('verification-showcase/ is missing. Run: node scripts/generate-verification.mjs');
   process.exit(1);
 }
 

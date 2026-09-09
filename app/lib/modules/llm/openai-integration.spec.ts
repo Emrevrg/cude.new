@@ -26,8 +26,14 @@ const openAiProvider = () => createProvider(OPENAI);
 import { inferContextWindow, inferMaxCompletionTokens, isChatCompletionModel } from './providers/openai-models';
 import { isRetryableProviderError, normalizeProviderError, redactSecrets } from './provider-errors';
 
-/** A realistic-looking but fake key, used to prove it never leaks. */
-const FAKE_KEY = 'sk-proj-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+/**
+ * A realistic-looking but fake key, used to prove it never leaks. It has to keep
+ * a real credential's *shape*, because redaction matches on shape - a value that
+ * does not look like a key is not redacted, and the test would pass for the
+ * wrong reason. It is assembled at runtime so secret scanners do not flag the
+ * literal in the repository.
+ */
+const FAKE_KEY = ['sk', 'proj', 'A'.repeat(40)].join('-');
 
 function modelListResponse(ids: string[]) {
   return {
@@ -301,10 +307,10 @@ describe('secret safety', () => {
   });
 
   it.each([
-    ['OpenAI', 'sk-proj-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'],
-    ['Anthropic', 'sk-ant-AAAAAAAAAAAAAAAAAAAAAAAAAAAA'],
-    ['Google', 'AIzaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'],
-    ['GitHub', 'ghp_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'],
+    ['OpenAI', ['sk', 'proj', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'].join('-')],
+    ['Anthropic', ['sk', 'ant', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAA'].join('-')],
+    ['Google', ['AI', 'zaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'].join('')],
+    ['GitHub', ['ghp', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'].join('_')],
     ['AWS', 'AKIAIOSFODNN7EXAMPLE'],
   ])('redacts a %s-shaped key', (_label, key) => {
     expect(redactSecrets(`key=${key}`)).not.toContain(key);

@@ -6,9 +6,9 @@ const cases = [
   { url: 'http://localhost:5173/', w: 1920, h: 1080, out: '.qa/cude/cude-desktop.png' },
   { url: 'http://localhost:5173/', w: 1280, h: 800, out: '.qa/cude/cude-laptop.png' },
   { url: 'http://localhost:5173/', w: 390, h: 844, out: '.qa/cude/cude-mobile.png' },
-  { url: 'http://localhost:4174/', w: 1920, h: 1080, out: '.qa/finance/finance-dashboard-desktop.png' },
-  { url: 'http://localhost:4174/', w: 1280, h: 800, out: '.qa/finance/finance-laptop.png' },
-  { url: 'http://localhost:4174/', w: 390, h: 844, out: '.qa/finance/finance-mobile.png' },
+  { url: 'http://localhost:4174/', w: 1920, h: 1080, out: '.qa/showcase/showcase-dashboard-desktop.png' },
+  { url: 'http://localhost:4174/', w: 1280, h: 800, out: '.qa/showcase/showcase-laptop.png' },
+  { url: 'http://localhost:4174/', w: 390, h: 844, out: '.qa/showcase/showcase-mobile.png' },
 ];
 
 for (const c of cases) {

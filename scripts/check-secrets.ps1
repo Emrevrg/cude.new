@@ -1,4 +1,6 @@
-$files = Get-ChildItem "C:\Users\win10\Desktop\cude.new\app" -Recurse -File -Include *.ts,*.tsx -ErrorAction SilentlyContinue
+# Repo root, so the script runs anywhere rather than on one machine.
+$repoRoot = Split-Path -Parent $PSScriptRoot
+$files = Get-ChildItem (Join-Path $repoRoot "app") -Recurse -File -Include *.ts,*.tsx -ErrorAction SilentlyContinue
 $found = $false
 foreach($f in $files){
     $content = Get-Content $f.FullName -Raw

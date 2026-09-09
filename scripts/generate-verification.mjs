@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Cude.new - regenerate the tracked finance fixture.
+ * Cude.new - regenerate the tracked product-quality showcase.
  *
- * `verification-finance/` is a committed artifact that other checks read: the
+ * `verification-showcase/` is a committed artifact that other checks read: the
  * export test packages it, and the screenshot pass serves its build. It is
  * supposed to be an example of what Cude produces.
  *
@@ -15,7 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { loadCudeModules, REPO_ROOT } from './lib/load-cude.mjs';
 
-const OUT_DIR = path.join(REPO_ROOT, 'verification-finance');
+const OUT_DIR = path.join(REPO_ROOT, 'verification-showcase');
 
 const PROMPT = `Build a polished personal finance application with:
 1. Dashboard
@@ -51,5 +51,5 @@ for (const [relative, contents] of Object.entries(files)) {
   fs.writeFileSync(absolute, contents, 'utf8');
 }
 
-console.log(`Wrote ${Object.keys(files).length} files to verification-finance/`);
+console.log(`Wrote ${Object.keys(files).length} files to verification-showcase/`);
 console.log(`Design system: ${ds.meta.preset} v${ds.meta.version}, radius-md ${ds.radius.md}`);

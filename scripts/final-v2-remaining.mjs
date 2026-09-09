@@ -1,7 +1,11 @@
 import { chromium } from 'playwright';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const browser = await chromium.launch();
-const outDir = 'C:/Users/win10/Desktop/cude.new/.qa/final-v2';
+/** Repo root, so the script runs anywhere rather than on one machine. */
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const outDir = path.join(ROOT, '.qa', 'final-v2');
 
 // Provider unconfigured
 {

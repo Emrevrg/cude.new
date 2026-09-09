@@ -1,9 +1,12 @@
 import { chromium } from 'playwright';
 import fs from 'fs';
-import path from 'path';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const base = 'http://localhost:5173';
-const outDir = 'C:/Users/win10/Desktop/cude.new/.qa/final-v2';
+/** Repo root, so the script runs anywhere rather than on one machine. */
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const outDir = path.join(ROOT, '.qa', 'final-v2');
 fs.mkdirSync(outDir, { recursive: true });
 
 const browser = await chromium.launch();

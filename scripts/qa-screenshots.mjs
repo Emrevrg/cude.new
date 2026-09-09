@@ -28,12 +28,12 @@ console.log('Starting servers...');
 
 // Cude.new static: serve build/client
 const cudeProc = spawn('npx', ['serve', 'build/client', '-l', '5173'], {
-  cwd: 'C:\\Users\\win10\\Desktop\\cude.new',
+  cwd: ROOT,
   shell: true,
   stdio: 'ignore',
 });
-const finProc = spawn('npx', ['serve', 'verification-finance/dist', '-l', '4174'], {
-  cwd: 'C:\\Users\\win10\\Desktop\\cude.new',
+const showcaseProc = spawn('npx', ['serve', 'verification-showcase/dist', '-l', '4174'], {
+  cwd: ROOT,
   shell: true,
   stdio: 'ignore',
 });
@@ -42,7 +42,7 @@ await new Promise((r) => setTimeout(r, 3000));
 
 const ok1 = await waitFor('http://localhost:5173/');
 const ok2 = await waitFor('http://localhost:4174/');
-console.log(`Cude ${ok1} Finance ${ok2}`);
+console.log(`Cude ${ok1} Showcase ${ok2}`);
 
 const browser = await chromium.launch();
 const contexts = [
@@ -67,23 +67,23 @@ for (const screen of ['dashboard', 'transactions', 'analytics', 'settings']) {
   const page = await ctx.newPage();
   await page.goto('http://localhost:4174/', { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(1200);
-  await page.screenshot({ path: `${ROOT}/.qa/finance/finance-${screen}-desktop.png`, fullPage: true });
-  console.log(`Finance ${screen} screenshot saved`);
+  await page.screenshot({ path: `${ROOT}/.qa/showcase/showcase-${screen}-desktop.png`, fullPage: true });
+  console.log(`Showcase ${screen} screenshot saved`);
   await ctx.close();
 }
 
-// mobile for finance
+// Mobile verification for the generated showcase.
 {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await ctx.newPage();
   await page.goto('http://localhost:4174/', { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(1200);
-  await page.screenshot({ path: `${ROOT}/.qa/finance/finance-dashboard-mobile.png`, fullPage: true });
-  console.log('Finance mobile saved');
+  await page.screenshot({ path: `${ROOT}/.qa/showcase/showcase-dashboard-mobile.png`, fullPage: true });
+  console.log('Showcase mobile saved');
   await ctx.close();
 }
 
 await browser.close();
 cudeProc.kill();
-finProc.kill();
+showcaseProc.kill();
 console.log('QA screenshots done');

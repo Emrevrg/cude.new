@@ -190,7 +190,7 @@ app/
 electron/                  desktop main and preload processes
 functions/                 Cloudflare Pages adapter
 scripts/                   release, runtime, export, and visual verification
-verification-finance/      generated design-system verification fixture
+verification-showcase/     generated product-quality verification fixture
 ```
 
 The web application uses Remix 2, React 18, Vite 5, UnoCSS, WebContainers, and
