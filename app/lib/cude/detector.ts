@@ -12,6 +12,16 @@ interface DetectionRule {
 
 const RULES: DetectionRule[] = [
   {
+    type: 'hardware',
+    keywords: [/\b(arduino|esp32|esp8266|raspberry pi pico|platformio|firmware|microcontroller|iot)\b/i],
+    weight: 12,
+  },
+  {
+    type: 'hardware',
+    keywords: [/\b(sensor|breadboard|wiring|gpio|relay|servo|oled display)\b/i],
+    weight: 4,
+  },
+  {
     type: 'browser-extension',
     keywords: [
       /chrome extension/i,

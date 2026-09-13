@@ -441,6 +441,13 @@ interface PlatformRule {
  */
 const PLATFORM_RULES: PlatformRule[] = [
   {
+    platform: 'hardware',
+    patterns: [
+      /\b(?:arduino|esp32|esp8266|raspberry\s+pi\s+pico|platformio|firmware|microcontroller|iot)\b/i,
+      /\b(?:breadboard|gpio|wiring|relay|servo)\b/i,
+    ],
+  },
+  {
     platform: 'vscode-extension',
     patterns: [/\bvs\s?code\s+extension\b/i, /\bvisual\s+studio\s+code\s+extension\b/i, /\bvsix\b/i],
   },

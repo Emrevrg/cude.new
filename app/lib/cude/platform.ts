@@ -16,6 +16,7 @@ export const PROJECT_TYPES = [
   'vscode-extension',
   'ide-extension',
   'backend',
+  'hardware',
 ] as const;
 
 export type ProjectType = (typeof PROJECT_TYPES)[number];
@@ -215,6 +216,21 @@ export const PROJECT_TYPE_CONFIGS: Record<ProjectType, ProjectTypeConfig> = {
     previewStrategy: 'API route preview / curl instructions',
     artifactType: 'worker / server bundle',
     validation: ['typecheck', 'build', 'route tests'],
+    supported: true,
+  },
+  hardware: {
+    id: 'hardware',
+    label: 'IoT & Hardware',
+    shortLabel: 'HARDWARE',
+    description: 'Firmware, wiring plan, bill of materials and device instructions',
+    icon: 'i-ph:cpu',
+    frameworks: ['PlatformIO', 'Arduino', 'ESP-IDF', 'Pico SDK'],
+    runtime: 'Local toolchain + connected device',
+    buildCommand: 'pio run',
+    testStrategy: 'native unit tests + compile',
+    previewStrategy: 'wiring plan, serial log and flash instructions',
+    artifactType: 'firmware + hardware build packet',
+    validation: ['platformio.ini', 'compile', 'pin map', 'bill of materials'],
     supported: true,
   },
 };

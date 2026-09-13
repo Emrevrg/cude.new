@@ -98,7 +98,7 @@ export function canAddTarget(architecture: ProductArchitecture, platform: Projec
 /** Platforms that are sensible next steps for an existing product. */
 export function suggestedNextTargets(architecture: ProductArchitecture): ProjectType[] {
   const existing = new Set(architecture.requirements.targetPlatforms);
-  const candidates: ProjectType[] = ['web', 'android', 'ios', 'desktop', 'backend'];
+  const candidates: ProjectType[] = ['web', 'android', 'ios', 'desktop', 'backend', 'hardware'];
 
   return candidates.filter((platform) => !existing.has(platform));
 }

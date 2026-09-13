@@ -194,6 +194,18 @@ function androidTemplate(prompt: string): FileMap {
   };
 }
 
+function hardwareTemplate(prompt: string): FileMap {
+  const safePrompt = prompt.slice(0, 180).replace(/</g, '&lt;').replace(/\r?\n/g, ' ');
+
+  return {
+    'platformio.ini': `[env:esp32dev]\nplatform = espressif32\nboard = esp32dev\nframework = arduino\nmonitor_speed = 115200\n`,
+    'src/main.cpp': `#include <Arduino.h>\n\n// Safe starter: no GPIO is driven until the exact board and pin map are confirmed.\nvoid setup() {\n  Serial.begin(115200);\n  Serial.println(\"Cude device online\");\n}\n\nvoid loop() {\n  Serial.println(\"heartbeat\");\n  delay(1000);\n}\n`,
+    'hardware/BOM.md': `# Bill of materials\n\n- ESP32 development board\n- USB data cable\n\nAdd sensors, actuators and power components only after confirming their voltage and current requirements.\n\n## Build intent\n\n${safePrompt}\n\nCude treats this list as a proposal. Confirm component voltage, current limits, and local safety requirements before assembly.`,
+    'hardware/WIRING.md': `# Wiring plan\n\nNo GPIO connections are enabled in the starter firmware. Record every connection below after confirming the exact board variant and component datasheets.\n\n| Function | Board pin | Connect to | Voltage/current notes |\n| --- | --- | --- | --- |\n| _Unassigned_ | _Confirm first_ | _Confirm first_ | _Required before wiring_ |\n`,
+    'README.md': `# Cude Hardware Project\n\n## Run\n\n1. Install PlatformIO.\n2. Connect the board with a data-capable USB cable.\n3. Check \`hardware/WIRING.md\` and \`hardware/BOM.md\`.\n4. Run \`pio run\`, then \`pio run --target upload\`.\n5. Read the serial log with \`pio device monitor\`.\n\nBuild intent: ${safePrompt}`,
+  };
+}
+
 export function getTemplateForType(type: ProjectType, prompt: string): FileMap {
   switch (type) {
     case 'browser-extension':
@@ -208,6 +220,8 @@ export function getTemplateForType(type: ProjectType, prompt: string): FileMap {
       return androidTemplate(prompt);
     case 'backend':
       return webTemplate(`Backend API: ${prompt}`);
+    case 'hardware':
+      return hardwareTemplate(prompt);
     case 'pwa':
       return webTemplate(`PWA: ${prompt}`);
     default:

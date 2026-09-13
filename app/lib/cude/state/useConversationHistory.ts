@@ -85,6 +85,11 @@ export interface ImportedConversation {
   metadata?: Record<string, unknown>;
 }
 
+/** The reserved `new` route starts an empty conversation instead of looking one up. */
+export function shouldLoadConversation(routeId: string | undefined): routeId is string {
+  return Boolean(routeId && routeId !== 'new');
+}
+
 export function useConversationHistory() {
   const navigate = useNavigate();
   const { id: routeId } = useLoaderData<{ id?: string }>() ?? {};
@@ -98,7 +103,7 @@ export function useConversationHistory() {
   useEffect(() => {
     let cancelled = false;
 
-    if (!routeId) {
+    if (!shouldLoadConversation(routeId)) {
       setReady(true);
       return () => undefined;
     }
@@ -248,7 +253,7 @@ export function useConversationHistory() {
   }, [navigate]);
 
   return {
-    ready: !routeId || ready,
+    ready: !shouldLoadConversation(routeId) || ready,
     initialMessages,
     storeMessageHistory,
     importChat,

@@ -1,4 +1,5 @@
 import { PROJECT_TYPE_CONFIGS, type ProjectType } from '~/lib/cude/platform';
+import { capabilityFor } from '~/lib/cude/capabilityMatrix';
 
 interface Props {
   value: ProjectType;
@@ -17,6 +18,7 @@ const ORDER: ProjectType[] = [
   'browser-extension',
   'vscode-extension',
   'backend',
+  'hardware',
 ];
 
 export function PlatformSelector({ value, onChange, compact }: Props) {
@@ -26,6 +28,7 @@ export function PlatformSelector({ value, onChange, compact }: Props) {
     >
       {ORDER.map((id) => {
         const cfg = PROJECT_TYPE_CONFIGS[id];
+        const capability = capabilityFor(id);
         const active = value === id;
 
         return (
@@ -37,7 +40,7 @@ export function PlatformSelector({ value, onChange, compact }: Props) {
                 ? 'bg-cude-button-primary-background text-cude-button-primary-text border-transparent'
                 : 'bg-transparent text-cude-textSecondary border-cude-borderColor hover:text-cude-textPrimary hover:border-cude-textTertiary'
             }`}
-            title={cfg.description}
+            title={`${cfg.description} · ${capability.label}. ${capability.summary}`}
           >
             {cfg.shortLabel}
           </button>

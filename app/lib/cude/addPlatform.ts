@@ -29,6 +29,7 @@ export interface IntentDetection {
 
 /** Phrases that name a platform, ordered so specific beats generic. */
 const PLATFORM_PHRASES: Array<{ platform: ProjectType; pattern: RegExp }> = [
+  { platform: 'hardware', pattern: /\b(?:arduino|esp32|esp8266|raspberry pi pico|hardware|firmware|iot)\b/i },
   { platform: 'vscode-extension', pattern: /\bvs\s?code extension\b|\bvisual studio code extension\b/i },
   { platform: 'browser-extension', pattern: /\b(?:browser|chrome|firefox|edge)\s+extension\b|\bweb\s?extension\b/i },
   { platform: 'ios', pattern: /\bios\b|\biphone\b|\bipad\b/i },
@@ -145,6 +146,13 @@ const SHARED_LABELS: Array<{ id: string; label: string }> = [
 /** Platform-specific work that always has to be created fresh. */
 function newWorkFor(platform: ProjectType): string[] {
   switch (platform) {
+    case 'hardware':
+      return [
+        'Firmware project',
+        'Pin map and wiring diagram',
+        'Bill of materials',
+        'Flash and serial-monitor instructions',
+      ];
     case 'desktop':
       return ['Desktop application shell', 'Window and menu integration', 'Local persistence adapter'];
     case 'android':
@@ -166,6 +174,8 @@ function newWorkFor(platform: ProjectType): string[] {
 /** Aspects of an existing product that must be re-expressed per platform. */
 function adaptationsFor(platform: ProjectType): string[] {
   switch (platform) {
+    case 'hardware':
+      return ['Device interaction model', 'Physical safety constraints', 'Offline and recovery behaviour'];
     case 'desktop':
       return ['Navigation', 'Window layout', 'Input model (keyboard/mouse)', 'Local persistence'];
     case 'android':
@@ -244,6 +254,7 @@ export function availableTargets(architecture: ProductArchitecture | null): Proj
     'browser-extension',
     'vscode-extension',
     'backend',
+    'hardware',
   ];
 
   if (!architecture) {

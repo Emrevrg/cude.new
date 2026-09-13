@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <a href="RELEASE_NOTES_v0.1.0.md"><img alt="Release v0.1.0" src="https://img.shields.io/badge/release-v0.1.0-111111?style=flat-square" /></a>
+  <a href="RELEASE_NOTES_v0.2.0.md"><img alt="Release v0.2.0" src="https://img.shields.io/badge/release-v0.2.0-111111?style=flat-square" /></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" /></a>
   <img alt="1,324 tests" src="https://img.shields.io/badge/tests-1%2C324%20passing-111111?style=flat-square" />
   <img alt="38 providers" src="https://img.shields.io/badge/providers-38-111111?style=flat-square" />
@@ -73,7 +73,8 @@ Every product image below was captured from the v0.1.0 release candidate.
 | **Architecture intelligence** | Extracts hard constraints, scores stacks per target, explains tradeoffs, and keeps the decision inspectable. |
 | **Design intelligence** | Creates reusable tokens and primitives, remembers the visual system, detects drift, and repairs shared foundations. |
 | **Explorer + Get Inspired** | Maps a reference with a second model before building; forbidden actions remain outside the exploration path. |
-| **Multi-target products** | Coordinates web, PWA, desktop, mobile, browser extension, VS Code extension, backend, and API targets. |
+| **Multi-target products** | Coordinates web, PWA, desktop, mobile, browser extension, VS Code extension, backend/API, and IoT hardware targets. |
+| **Hardware build packet** | For Arduino, ESP32 and Pico-style prototypes, produces firmware with a bill of materials, pin map, wiring plan, and flash instructions — never firmware alone. |
 | **Existing project continuation** | Opens a local folder, skips heavyweight metadata, restores the workspace, and continues from the current code. |
 | **Snapshots and preflight** | Restores project state and checks files, encoding, preview readiness, and target requirements before release. |
 | **Model freedom** | Registers 38 hosted and local providers, including OpenRouter and OpenAI-compatible endpoints. |
@@ -209,7 +210,7 @@ Android artifacts require the Android SDK, and signed desktop releases require
 platform signing credentials. Cude.new reports these limits instead of inventing
 an artifact.
 
-See [v0.1 release notes](RELEASE_NOTES_v0.1.0.md) for the detailed matrix.
+See [v0.2 release notes](RELEASE_NOTES_v0.2.0.md) for this migration and the remaining native-core boundary.
 
 ## Contributing
 

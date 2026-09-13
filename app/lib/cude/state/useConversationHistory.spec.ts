@@ -8,7 +8,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { deriveDescription } from './useConversationHistory';
+import { deriveDescription, shouldLoadConversation } from './useConversationHistory';
 
 const user = (content: string) => ({ role: 'user', content }) as never;
 
@@ -30,5 +30,13 @@ describe('deriveDescription', () => {
   it('returns nothing when there is nothing to name', () => {
     expect(deriveDescription([])).toBeUndefined();
     expect(deriveDescription([user('[Model: x]\n[Provider: y]')])).toBeUndefined();
+  });
+});
+
+describe('conversation route selection', () => {
+  it('treats the reserved new route as an empty conversation', () => {
+    expect(shouldLoadConversation(undefined)).toBe(false);
+    expect(shouldLoadConversation('new')).toBe(false);
+    expect(shouldLoadConversation('existing-run')).toBe(true);
   });
 });

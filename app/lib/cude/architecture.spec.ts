@@ -33,6 +33,16 @@ describe('deriveProductName', () => {
   });
 });
 
+describe('hardware product planning', () => {
+  it('creates a first-class firmware decision for an ESP32 brief', () => {
+    const architecture = planProductArchitecture('Build an ESP32 room monitor with a CO2 sensor and OLED display.');
+
+    expect(architecture.requirements.targetPlatforms).toContain('hardware');
+    expect(architecture.stackDecisions.hardware.selected.projectType).toBe('hardware');
+    expect(architecture.stackDecisions.hardware.selected.framework).toMatch(/platformio|esp-idf/);
+  });
+});
+
 describe('planProductArchitecture — connected product family', () => {
   const architecture = planProductArchitecture(FAMILY_PROMPT);
 

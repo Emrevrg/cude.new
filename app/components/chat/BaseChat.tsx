@@ -24,6 +24,7 @@ import * as Tooltip from '@radix-ui/react-tooltip';
 import styles from './BaseChat.module.scss';
 import { ImportButtons } from '~/components/chat/chatExportAndImport/ImportButtons';
 import { ExamplePrompts } from '~/components/chat/ExamplePrompts';
+import { CudeLaunchpad } from '~/components/cude/CudeLaunchpad';
 import GitCloneButton from './GitCloneButton';
 import type { ProviderInfo } from '~/types/model';
 import StarterTemplates from './StarterTemplates';
@@ -523,20 +524,20 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
             )}
           >
             {!chatStarted && (
-              <div id="intro" className="mt-[12vh] max-w-3xl mx-auto text-center px-4 lg:px-0">
+              <div id="intro" className="mt-[10vh] max-w-4xl mx-auto text-center px-4 lg:px-0">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cude-borderColor bg-cude-background-depth-2 text-[11px] tracking-widest font-medium text-cude-textSecondary mb-6">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cude-textPrimary animate-pulse" />
-                  OPEN-SOURCE · MULTI-MODEL · MULTI-AGENT
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  YOUR CODE · YOUR MODEL · YOUR DELIVERY PATH
                 </div>
                 <h1 className="text-4xl lg:text-[56px] font-semibold tracking-tight text-cude-textPrimary mb-3 animate-fade-in">
-                  Cude.new
+                  Build without the black box.
                 </h1>
                 <p className="text-lg lg:text-xl font-light tracking-tight text-cude-textSecondary mb-2 animate-fade-in animation-delay-200">
-                  Build software with an AI engineering team.
+                  Cude is a visible engineering run — from intent to evidence.
                 </p>
-                <p className="text-sm text-cude-textTertiary max-w-xl mx-auto leading-relaxed">
-                  Describe software. Cude plans it, architects it, builds it, runs it, tests it, repairs it, reviews it,
-                  and prepares it for release.
+                <p className="text-sm text-cude-textTertiary max-w-2xl mx-auto leading-relaxed">
+                  Choose your models, inspect every decision, edit every file, and ship to infrastructure you control.
+                  Software, extensions, native apps and physical prototypes begin in one workspace.
                 </p>
               </div>
             )}
@@ -679,6 +680,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                 </div>
               )}
               <div className="flex flex-col gap-5">
+                {!chatStarted && <CudeLaunchpad sendMessage={sendExamplePrompt} />}
                 {!chatStarted && <ExamplePrompts sendMessage={sendExamplePrompt} />}
                 {!chatStarted && <StarterTemplates />}
               </div>

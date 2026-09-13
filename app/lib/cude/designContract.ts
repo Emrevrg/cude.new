@@ -497,6 +497,8 @@ function viewportFor(platform: ProjectType): { width: number; height: number } {
       return { width: 390, height: 780 };
     case 'desktop':
       return { width: 1280, height: 800 };
+    case 'hardware':
+      return { width: 1440, height: 900 };
     default:
       return { width: 1280, height: 800 };
   }
@@ -525,6 +527,10 @@ function adaptationNotesFor(platform: ProjectType, density: DensityLevel, naviga
     case 'desktop':
       notes.push('Multi-pane: navigate, list and inspect simultaneously');
       notes.push('Keyboard shortcuts and a persistent status bar');
+      break;
+    case 'hardware':
+      notes.push('Keep firmware, pin map, parts and device logs visible together');
+      notes.push('Never hide voltage, pin or flash assumptions behind a visual control');
       break;
     default:
       notes.push('Responsive: sidebar collapses to a top bar on narrow viewports');

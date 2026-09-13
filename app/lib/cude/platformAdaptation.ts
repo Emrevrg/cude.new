@@ -233,6 +233,24 @@ export const platformProfiles: Record<ProjectType | 'all', PlatformProfile> = {
     supportsDarkMode: true,
     supportsSystemTheme: true,
   },
+  hardware: {
+    platform: 'hardware',
+    inputMethod: 'mixed',
+    primaryNavigation: 'side-rail',
+    touchTargetMin: 36,
+    hoverEnabled: true,
+    contextMenus: true,
+    keyboardShortcuts: true,
+    defaultDensity: 'compact',
+    scrollDirection: 'both',
+    contentLayout: 'grid',
+    spacing: 'tight',
+    typography: { baseFontSize: 13, scaleRatio: 1.15 },
+    maxContentWidth: 1440,
+    recommendedColumns: 3,
+    supportsDarkMode: true,
+    supportsSystemTheme: true,
+  },
 
   /*
    * 'auto' means the platform has not been resolved yet; mirror the neutral
