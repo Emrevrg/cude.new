@@ -2,9 +2,8 @@
 import type { LoaderFunctionArgs } from '@remix-run/cloudflare';
 import { json, type MetaFunction } from '@remix-run/cloudflare';
 import { ClientOnly } from 'remix-utils/client-only';
-import { BaseChat } from '~/components/chat/BaseChat';
+import { CudeLogo } from '~/components/cude/CudeLogo';
 import { GitUrlImport } from '~/components/git/GitUrlImport.client';
-import { Header } from '~/components/header/Header';
 import BackgroundRays from '~/components/ui/BackgroundRays';
 
 export const meta: MetaFunction = () => {
@@ -22,8 +21,12 @@ export default function Index() {
   return (
     <div className="flex flex-col h-full w-full bg-cude-background-depth-1">
       <BackgroundRays />
-      <Header />
-      <ClientOnly fallback={<BaseChat />}>{() => <GitUrlImport />}</ClientOnly>
+      <header className="relative z-10 flex h-16 items-center border-b border-cude-borderColor px-6">
+        <a href="/" aria-label="Cude home">
+          <CudeLogo height={25} />
+        </a>
+      </header>
+      <ClientOnly fallback={<div className="min-h-96" />}>{() => <GitUrlImport />}</ClientOnly>
     </div>
   );
 }

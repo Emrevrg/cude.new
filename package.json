@@ -1,6 +1,6 @@
 {
   "name": "cude-new",
-  "description": "Cude.new \u2014 open-source AI software factory for web, mobile, desktop and extensions",
+  "description": "Cude.new — open-source AI software factory for web, mobile, desktop and extensions",
   "private": true,
   "license": "MIT",
   "sideEffects": false,
@@ -23,6 +23,7 @@
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 remix vite:build",
     "dev": "node pre-start.cjs  && remix vite:dev",
     "test": "vitest --run",
+    "test:native-boundary": "node scripts/cude-native-boundary.test.mjs && node scripts/cude-native-boundary.mjs",
     "test:watch": "vitest",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint app",
     "lint:fix": "npm run lint -- --fix && prettier app --write",

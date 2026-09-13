@@ -87,6 +87,7 @@ export default defineConfig((config) => {
         '**/node_modules/**',
         '**/dist/**',
         '**/.qa/**', // Local screenshots, cloned references, and release evidence are never product tests.
+        '**/scripts/cude-native-boundary.test.mjs', // Runs with Node's built-in test runner via test:native-boundary.
         '**/cypress/**',
         '**/.{idea,git,cache,output,temp}/**',
         '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*',

@@ -1,11 +1,9 @@
-import { useStore } from '@nanostores/react';
 import { useSearchParams } from '@remix-run/react';
-import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
-import { Chat } from '~/components/chat/Chat.client';
+import { useEffect, useMemo, useReducer, useState } from 'react';
 import { CudeLogo } from '~/components/cude/CudeLogo';
 import { createProductRun, productRunReducer, type ProductRunState } from '~/lib/cude/native/productRun';
 import { loadProductRun, saveProductRun } from '~/lib/cude/native/productRunStorage';
-import { pipelineStore } from '~/lib/stores/cude';
+import { NativeBuildStudio } from './NativeBuildStudio.client';
 import { CudeNativeWorkspace, type CudeWorkspaceActivity, type CudeWorkspaceStage } from './CudeNativeWorkspace';
 
 type StudioSurface = 'run' | 'build';
@@ -43,36 +41,14 @@ export function CudeStudio({ runId }: { runId: string }) {
     runId === 'new' ? `run-${globalThis.crypto?.randomUUID?.() ?? Date.now().toString(36)}` : runId,
   );
   const [surface, setSurface] = useState<StudioSurface>('run');
-  const pipeline = useStore(pipelineStore);
   const [run, dispatch] = useReducer(productRunReducer, sessionRunId, (id) =>
     typeof window === 'undefined' ? createProductRun(id) : loadProductRun(window.localStorage, id),
   );
-  const lastRecordedPipeline = useRef<string>(pipeline.status);
   const stage = workspaceStage(run);
 
   useEffect(() => {
     saveProductRun(window.localStorage, run);
   }, [run]);
-
-  useEffect(() => {
-    if (run.stage !== 'building' || lastRecordedPipeline.current === pipeline.status) {
-      return;
-    }
-
-    if (pipeline.status === 'verified') {
-      lastRecordedPipeline.current = pipeline.status;
-      dispatch({
-        type: 'RECORD_BUILD',
-        build: { buildId: `build-${run.builds.length + 1}`, succeeded: true, summary: 'Cude pipeline verified' },
-      });
-    } else if (pipeline.status === 'failed') {
-      lastRecordedPipeline.current = pipeline.status;
-      dispatch({
-        type: 'RECORD_BUILD',
-        build: { buildId: `build-${run.builds.length + 1}`, succeeded: false, summary: 'Cude pipeline failed' },
-      });
-    }
-  }, [pipeline.status, run.builds.length, run.stage]);
 
   const activity = useMemo<CudeWorkspaceActivity[]>(
     () => [
@@ -201,7 +177,7 @@ export function CudeStudio({ runId }: { runId: string }) {
         </main>
       ) : (
         <main className="min-h-0 flex-1" aria-label="Cude build studio">
-          <Chat />
+          <NativeBuildStudio runId={sessionRunId} initialPrompt={prompt} />
         </main>
       )}
     </div>
