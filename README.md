@@ -4,7 +4,7 @@
 
 <div align="center">
   <a href="RELEASE_NOTES_v0.2.0.md"><img alt="Release v0.2.0" src="https://img.shields.io/badge/release-v0.2.0-111111?style=flat-square" /></a>
-  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" /></a>
+  <a href="LICENSE"><img alt="Apache 2.0 License" src="https://img.shields.io/badge/license-Apache--2.0-111111?style=flat-square" /></a>
   <img alt="1,324 tests" src="https://img.shields.io/badge/tests-1%2C324%20passing-111111?style=flat-square" />
   <img alt="38 providers" src="https://img.shields.io/badge/providers-38-111111?style=flat-square" />
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-111111?style=flat-square&amp;logo=typescript&amp;logoColor=white" />
@@ -226,7 +226,7 @@ submitting changes or reporting a vulnerability.
 
 ## License
 
-Cude.new is distributed under the [MIT License](LICENSE). Required notices for
+Cude.new is distributed under the [Apache License 2.0](LICENSE). Required notices for
 incorporated open-source work are retained in
 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 

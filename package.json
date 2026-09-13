@@ -2,10 +2,10 @@
   "name": "cude-new",
   "description": "Cude.new — open-source AI software factory for web, mobile, desktop and extensions",
   "private": true,
-  "license": "MIT",
+  "license": "Apache-2.0",
   "sideEffects": false,
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "Cude.new contributors",
     "email": "hello@cude.new"

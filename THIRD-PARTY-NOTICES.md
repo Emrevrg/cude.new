@@ -1,6 +1,7 @@
 # Third-party notices
 
-Cude.new includes and modifies software made available under permissive
+Cude.new's original contributions are licensed under Apache License 2.0.
+Cude.new also includes and modifies software made available under permissive
 open-source licences. The notice below is retained with the distributed source
 and application packages as required by its licence.
 
