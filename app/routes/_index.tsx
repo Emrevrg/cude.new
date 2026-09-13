@@ -4,11 +4,11 @@ import { CudeHome } from '~/components/cude/home/CudeHome';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Cude.new - Build software with an AI engineering team' },
+    { title: 'Cude.new — Make software you can explain' },
     {
       name: 'description',
       content:
-        'Cude.new - open-source AI software factory for web, mobile, desktop and extensions. Describe software. Cude plans, builds, tests and repairs.',
+        'Cude.new is an open engineering environment for visible, reviewable AI software runs. Keep your code, choose your model, and verify the work.',
     },
   ];
 };
