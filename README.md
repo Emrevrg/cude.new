@@ -3,6 +3,7 @@
 </div>
 
 <div align="center">
+  <a href="https://cude-new-studio.netlify.app/"><img alt="Live site" src="https://img.shields.io/badge/live-cude--new--studio.netlify.app-00C7B7?style=flat-square&amp;logo=netlify&amp;logoColor=white" /></a>
   <a href="RELEASE_NOTES_v0.2.0.md"><img alt="Release v0.2.0" src="https://img.shields.io/badge/release-v0.2.0-111111?style=flat-square" /></a>
   <a href="LICENSE"><img alt="Apache 2.0 License" src="https://img.shields.io/badge/license-Apache--2.0-111111?style=flat-square" /></a>
   <img alt="1,324 tests" src="https://img.shields.io/badge/tests-1%2C324%20passing-111111?style=flat-square" />
@@ -12,7 +13,7 @@
 
 <p align="center">
   Turn a product brief into a planned, designed, built, tested, and reviewable project.<br />
-  Run it in the browser or as a desktop application. Bring your own model.
+  <a href="https://cude-new-studio.netlify.app/"><strong>Visit the live Cude.new site</strong></a> · Run it in the browser or as a desktop application. Bring your own model.
 </p>
 
 <div align="center">
