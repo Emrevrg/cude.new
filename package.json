@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "sideEffects": false,
   "type": "module",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": {
     "name": "Cude.new contributors",
     "email": "hello@cude.new"

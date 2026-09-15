@@ -1,4 +1,5 @@
 # Cude.new - CONTRIBUTING.md
+
 # Contribution Guidelines
 
 Welcome! This guide provides all the details you need to contribute effectively to Cude.new. Thank you for helping us make Cude.new a better tool for developers worldwide.
@@ -30,7 +31,7 @@ This project is governed by our **Code of Conduct**. By participating, you agree
 ### Reporting Bugs or Feature Requests
 
 - Check the [issue tracker](https://github.com/Emrevrg/cude.new/issues) to avoid duplicates
-- Use issue templates (if available)
+- Use the repository's issue templates
 - Provide detailed, relevant information and steps to reproduce bugs
 
 ### Code Contributions
@@ -138,7 +139,7 @@ pnpm run test
 ### Test Guidelines
 
 - Write tests for new features
-- Ensure all existing tests pass (`corepack pnpm test` → 1,324 passing)
+- Ensure all existing tests pass (`corepack pnpm test` → 1,377 passing in the v0.2.2 audit)
 - Keep tests focused and deterministic
 - Use Vitest for unit/integration tests
 
@@ -182,15 +183,9 @@ The `docker-compose.yaml` is compatible with **VS Code Dev Containers**:
 
 1. Open command palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
 2. Select **Dev Containers: Reopen in Container**
-4. Choose **development** profile
-5. VS Code rebuilds and opens the container
+3. Choose **development** profile
+4. VS Code rebuilds and opens the container
 
 ---
 
-## Code of Conduct
-
-This project is governed by a Code of Conduct. By participating, you agree to uphold this code. Report unacceptable behavior to the project maintainers.
-
----
-
-*Thank you for contributing to Cude.new!*
+_Thank you for contributing to Cude.new!_

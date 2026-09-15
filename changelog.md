@@ -1,5 +1,18 @@
 # Cude.new - changelog.md
+
 # Changelog
+
+## v0.2.2
+
+### Reliability
+
+- Removed the last palette-guard violation and formatted the public home surface.
+- Verified the production build, TypeScript, ESLint, and all 1,377 tests across 98 files.
+
+### Community and maintenance
+
+- Added a Code of Conduct, support policy, public roadmap, and pull-request template.
+- Refreshed README and security documentation so release and verification claims match the audited tree.
 
 ## v0.1.0
 

@@ -4,9 +4,9 @@
 
 <div align="center">
   <a href="https://cude-new-studio.netlify.app/"><img alt="Live site" src="https://img.shields.io/badge/live-cude--new--studio.netlify.app-00C7B7?style=flat-square&amp;logo=netlify&amp;logoColor=white" /></a>
-  <a href="RELEASE_NOTES_v0.2.0.md"><img alt="Release v0.2.0" src="https://img.shields.io/badge/release-v0.2.0-111111?style=flat-square" /></a>
+  <a href="RELEASE_NOTES_v0.2.2.md"><img alt="Release v0.2.2" src="https://img.shields.io/badge/release-v0.2.2-111111?style=flat-square" /></a>
   <a href="LICENSE"><img alt="Apache 2.0 License" src="https://img.shields.io/badge/license-Apache--2.0-111111?style=flat-square" /></a>
-  <img alt="1,324 tests" src="https://img.shields.io/badge/tests-1%2C324%20passing-111111?style=flat-square" />
+  <img alt="1,377 tests" src="https://img.shields.io/badge/tests-1%2C377%20passing-111111?style=flat-square" />
   <img alt="38 providers" src="https://img.shields.io/badge/providers-38-111111?style=flat-square" />
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-111111?style=flat-square&amp;logo=typescript&amp;logoColor=white" />
 </div>
@@ -45,13 +45,13 @@ which command ran, which file changed, and whether verification passed.
 
 ## Product tour
 
-Every product image below was captured from the v0.1.0 release candidate.
+Every product image below was captured from the current v0.2 product line.
 
-| Start with the right target and model | Watch the engineering pipeline run |
-| --- | --- |
-| <img src=".github/assets/product-home.png" alt="Cude.new home with platform targets, project import actions, and model picker" /> | <img src=".github/assets/product-pipeline.png" alt="Cude.new agents view with the active engineering pipeline" /> |
-| **Inspect architecture decisions** | **Map a reference safely with Explorer** |
-| <img src=".github/assets/product-architecture.png" alt="Cude.new architecture inspector for a multi-target product" /> | <img src=".github/assets/product-explorer.png" alt="Cude.new Explorer dialog for mapping a reference before implementation" /> |
+| Start with the right target and model                                                                                             | Watch the engineering pipeline run                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| <img src=".github/assets/product-home.png" alt="Cude.new home with platform targets, project import actions, and model picker" /> | <img src=".github/assets/product-pipeline.png" alt="Cude.new agents view with the active engineering pipeline" />              |
+| **Inspect architecture decisions**                                                                                                | **Map a reference safely with Explorer**                                                                                       |
+| <img src=".github/assets/product-architecture.png" alt="Cude.new architecture inspector for a multi-target product" />            | <img src=".github/assets/product-explorer.png" alt="Cude.new Explorer dialog for mapping a reference before implementation" /> |
 
 <details>
 <summary><strong>See Get Inspired</strong></summary>
@@ -65,20 +65,20 @@ Every product image below was captured from the v0.1.0 release candidate.
   <img src=".github/assets/engineering-flow.svg" width="92%" alt="Cude.new engineering pipeline from intent to verified release" />
 </div>
 
-## What ships in v0.1
+## What ships in v0.2
 
-| Capability | What it does |
-| --- | --- |
-| **Visible engineering pipeline** | Runs requirements, planning, architecture, design, build, test, repair, review, and security stages with real status. |
-| **Live activity in chat** | Shows file writes and commands beside the conversation, then groups every changed file into a reviewable result. |
-| **Architecture intelligence** | Extracts hard constraints, scores stacks per target, explains tradeoffs, and keeps the decision inspectable. |
-| **Design intelligence** | Creates reusable tokens and primitives, remembers the visual system, detects drift, and repairs shared foundations. |
-| **Explorer + Get Inspired** | Maps a reference with a second model before building; forbidden actions remain outside the exploration path. |
-| **Multi-target products** | Coordinates web, PWA, desktop, mobile, browser extension, VS Code extension, backend/API, and IoT hardware targets. |
-| **Hardware build packet** | For Arduino, ESP32 and Pico-style prototypes, produces firmware with a bill of materials, pin map, wiring plan, and flash instructions — never firmware alone. |
-| **Existing project continuation** | Opens a local folder, skips heavyweight metadata, restores the workspace, and continues from the current code. |
-| **Snapshots and preflight** | Restores project state and checks files, encoding, preview readiness, and target requirements before release. |
-| **Model freedom** | Registers 38 hosted and local providers, including OpenRouter and OpenAI-compatible endpoints. |
+| Capability                        | What it does                                                                                                                                                   |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Visible engineering pipeline**  | Runs requirements, planning, architecture, design, build, test, repair, review, and security stages with real status.                                          |
+| **Live activity in chat**         | Shows file writes and commands beside the conversation, then groups every changed file into a reviewable result.                                               |
+| **Architecture intelligence**     | Extracts hard constraints, scores stacks per target, explains tradeoffs, and keeps the decision inspectable.                                                   |
+| **Design intelligence**           | Creates reusable tokens and primitives, remembers the visual system, detects drift, and repairs shared foundations.                                            |
+| **Explorer + Get Inspired**       | Maps a reference with a second model before building; forbidden actions remain outside the exploration path.                                                   |
+| **Multi-target products**         | Coordinates web, PWA, desktop, mobile, browser extension, VS Code extension, backend/API, and IoT hardware targets.                                            |
+| **Hardware build packet**         | For Arduino, ESP32 and Pico-style prototypes, produces firmware with a bill of materials, pin map, wiring plan, and flash instructions — never firmware alone. |
+| **Existing project continuation** | Opens a local folder, skips heavyweight metadata, restores the workspace, and continues from the current code.                                                 |
+| **Snapshots and preflight**       | Restores project state and checks files, encoding, preview readiness, and target requirements before release.                                                  |
+| **Model freedom**                 | Registers 38 hosted and local providers, including OpenRouter and OpenAI-compatible endpoints.                                                                 |
 
 ### Reference exploration without risky actions
 
@@ -202,16 +202,16 @@ Electron while keeping the server and route manifest inside the application.
 ## Verification status
 
 The current Windows release audit passed TypeScript and ESLint with zero errors.
-The unit and behavior suite contains **1,324 passing tests across 88 files**.
-Production build, browser smoke, provider discovery, OpenRouter Explorer, and
-the packaged desktop server path have also been exercised for this candidate.
+The unit and behavior suite contains **1,377 passing tests across 98 files**.
+The production web build, provider discovery, OpenRouter Explorer, and the
+packaged desktop server path have also been exercised for this product line.
 
 Native packaging still depends on the host toolchain: iOS requires macOS/Xcode,
 Android artifacts require the Android SDK, and signed desktop releases require
 platform signing credentials. Cude.new reports these limits instead of inventing
 an artifact.
 
-See [v0.2 release notes](RELEASE_NOTES_v0.2.0.md) for this migration and the remaining native-core boundary.
+See [v0.2.2 release notes](RELEASE_NOTES_v0.2.2.md) for the current verification evidence and known constraints.
 
 ## Contributing
 
@@ -222,8 +222,10 @@ Issues and focused pull requests are welcome. Before opening a PR:
 3. Run the four release gates shown above.
 4. Include screenshots for visible interface changes.
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md) before
-submitting changes or reporting a vulnerability.
+Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md),
+and [SECURITY.md](SECURITY.md) before submitting changes or reporting a
+vulnerability. Planned work is tracked in [ROADMAP.md](ROADMAP.md), and support
+boundaries are documented in [SUPPORT.md](SUPPORT.md).
 
 ## License
 

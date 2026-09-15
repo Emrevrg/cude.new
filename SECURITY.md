@@ -6,7 +6,8 @@ We release security updates for the latest minor version of Cude.new.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.1.x   | :white_check_mark: |
+| 0.2.x   | :white_check_mark: |
+| 0.1.x   | :x:                |
 | < 0.1   | :x:                |
 
 ## Reporting a Vulnerability
@@ -66,16 +67,16 @@ Cude.new implements several security measures:
 - **Sandboxed File System**: WebContainer provides virtualized file system
 - **Dependency Validation**: Package scripts use `npm run build` with locked `pnpm-lock.yaml`
 
-## Dependency Audit Status — v0.1.0
+## Dependency Audit Status — v0.2.x
 
 Run `pnpm audit --prod` to reproduce.
 
-| Severity | Count |
-|---|---|
-| Critical | **0** |
-| High | **2** (both build-time only — evidence below) |
-| Moderate | 15 |
-| Low | 13 |
+| Severity | Count                                         |
+| -------- | --------------------------------------------- |
+| Critical | **0**                                         |
+| High     | **2** (both build-time only — evidence below) |
+| Moderate | 15                                            |
+| Low      | 13                                            |
 
 ### Resolved for this release
 
@@ -91,7 +92,7 @@ Targeted upgrades, no framework rewrite:
   `js-yaml` → **^4.3.1**, `postcss` → **^8.5.18**, `builder-util-runtime` → **^9.7.0**
   — all patch-level within the same major.
 
-Full regression after the upgrade: production build, `tsc --noEmit`, 1,324 tests and
+Full regression after the upgrade: production build, `tsc --noEmit`, 1,377 tests and
 all five verification harnesses pass.
 
 ### Remaining high advisories — reachability evidence
@@ -103,7 +104,8 @@ this release.
 **1. `turbo-stream` 2.4.1 — DoS via reflected input in single-fetch (GHSA-rxv8-25v2-qmq8)**
 Patched in 3.0.0; Remix 2.x pins the 2.x API.
 
-*Not reachable:*
+_Not reachable:_
+
 - The vulnerability lives in Remix's single-fetch data path. This application
   runs with `v3_singleFetch: false` — confirmed in the compiled server bundle.
 - `turbo-stream` appears **0 times** in the built server output
@@ -113,7 +115,8 @@ Patched in 3.0.0; Remix 2.x pins the 2.x API.
 **2. `vite` 5.4.19 — `server.fs.deny` bypass on Windows alternate paths**
 Patched in 6.4.3, which is a major upgrade of the build toolchain.
 
-*Not reachable:*
+_Not reachable:_
+
 - The advisory affects the Vite **dev server**'s file-serving guard. It is a
   development-time concern, not part of any production artefact.
 - `vite` is not present in the deployed bundle; the production build is static
@@ -136,7 +139,7 @@ We aim to follow this timeline:
 3. **Day 1-7**: Initial triage and severity assessment
 4. **Day 7-30**: Fix development and testing
 5. **Day 30-60**: Patch release and advisory publication
-5. **Day 60+**: Public disclosure (coordinated with reporter)
+6. **Day 60+**: Public disclosure (coordinated with reporter)
 
 ## Contact
 
@@ -144,4 +147,4 @@ For security-related questions that are not vulnerability reports, please open a
 
 ---
 
-*This policy is adapted from common open-source security practices. Third-party notices: see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).*
+_This policy is adapted from common open-source security practices. Third-party notices: see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)._
